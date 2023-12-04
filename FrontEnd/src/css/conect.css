@@ -1,0 +1,117 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+}
+
+.login button {
+    background-color: var(--cor-branca);
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    transition: 0.3s ease;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    width: 400px;
+}
+
+.login button:hover, .icon-exit:hover, .btn-enter:hover {
+    filter: brightness(75%);
+}
+
+.icon-exit {
+    color: red;
+    position: absolute;
+    left: 35px;
+    top: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.connecting {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor-branca);
+    color: black;
+    height: 50%;
+    width: 30%;
+    position: absolute;
+    z-index: 1;
+    align-items: center;
+    padding: 15px 10px;
+    border-radius: 8px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.7s ease-in-out;
+}
+
+.display-disable{
+    display: none;
+}
+
+.display-enable {
+    display: flex;
+}
+
+.connecting h2 {
+    margin: 40px 0;
+    text-transform: uppercase;
+    font-weight: 400;
+    text-align: center;
+    padding-bottom: 20px;
+    width: 90%;
+    border-bottom: 2px solid var(--cor-cinza);
+}
+
+.connecting .info-login {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 70%;
+}
+
+.connecting .info-login .info-input{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 20px;
+    position: relative;
+}
+
+.connecting .info-login .info-input input{
+    font-size: 18px;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.connecting .info-login .info-input input:focus {
+    outline: 0;
+    border: solid 2px rgb(16 185 129);
+}
+
+.connecting .info-login .info-input .input-error {
+    position: absolute;
+    bottom: -22px;
+    left: 4px;
+    font-size: 13px;
+    color: red;
+    text-transform: uppercase;
+}
+
+.connecting .btn-enter {
+    background-color: lightblue;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 12px 30px;
+    position: absolute;
+    bottom: 50px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}

@@ -1,0 +1,45 @@
+.line {
+    width: 5px;
+    position: absolute;
+    background-color: var(--cor-branca);
+    z-index: -1;
+}
+
+.first {
+    top: 0;
+    left: 6%;
+    height: 90vh;
+}
+
+.second {
+    top: 0;
+    left: 15%;
+    height: 60vh;
+}
+
+.third {
+    top: 0;
+    right: 15%;
+    height: 60vh;
+}
+
+.fourth {
+    top: 0;
+    right: 6%;
+    height: 90vh;
+}
+
+.icon-scissors-comb {
+    position: absolute;
+    font-size: 90px;
+    color: rgb(103, 97, 97);
+    left: 13%;
+    bottom: 22%;
+}
+
+.icon-barbershop {
+    width: 130px;
+    position: absolute;
+    right: 12%;
+    bottom: 20%;
+}

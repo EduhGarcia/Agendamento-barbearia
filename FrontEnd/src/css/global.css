@@ -1,0 +1,18 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-cinza);
+}
+
+main {
+    height: 100vh;
+}
+
+:root {
+    --cor-branca: rgb(226 232 240);
+    --cor-cinza: rgb(156 163 175);
+}
