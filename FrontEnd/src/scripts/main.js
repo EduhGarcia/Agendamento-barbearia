@@ -1,18 +1,26 @@
-const btnLogin = document.getElementById('log-in')
+const btnLogin = $('#log-in')
+const btnSignin = $('#sign-in')
 const connecting = document.querySelector('.connecting')
 const main = document.querySelector('main')
 
 let next = 0
 
-btnLogin.addEventListener('click', screenLogin)
+btnLogin.on('click', screenLogin)
+btnSignin.on('click', screenSignin)
 
 function screenLogin() {
     const btnLogin = document.querySelector('.btn-enter')
-
     openScreenConnect()
 
     btnLogin.addEventListener('click', checkInputs)
-    document.querySelector('.icon-exit').addEventListener('click', closeScreenConnect)
+}
+
+function screenSignin() {
+    const ScreenDefault = connecting.innerHTML
+    const titleConnect = document.querySelector('.title-conneting')
+    titleConnect.innerText = 'Página de Cadastro'
+
+    openScreenConnect()
 }
 
 function checkInputs() {
@@ -36,6 +44,8 @@ function checkInputs() {
 function openScreenConnect() {
     connecting.classList.remove('display-disable')
     main.style.filter = "blur(6px)"
+
+    document.querySelector('.icon-exit').addEventListener('click', closeScreenConnect)
 }
 
 function closeScreenConnect() {
