@@ -1,7 +1,7 @@
 const btnLogin = $('#log-in')
 const btnSignin = $('#sign-in')
-const connecting = document.querySelector('.connecting')
-const main = document.querySelector('main')
+const connecting = $('.connecting')
+const main = $('main')
 
 let next = 0
 
@@ -9,32 +9,32 @@ btnLogin.on('click', screenLogin)
 btnSignin.on('click', screenSignin)
 
 function screenLogin() {
-    const btnLogin = document.querySelector('.btn-enter')
+    const btnLogin = $('.btn-enter')
     openScreenConnect()
 
-    btnLogin.addEventListener('click', checkInputs)
+    btnLogin.on('click', checkInputs)
 }
 
 function screenSignin() {
-    const ScreenDefault = connecting.innerHTML
-    const titleConnect = document.querySelector('.title-conneting')
-    titleConnect.innerText = 'Página de Cadastro'
+    const ScreenDefault = connecting.html()
+    $('.title-conneting').text('Página de Cadastro')
 
+    // connecting.append("")
     openScreenConnect()
 }
 
 function checkInputs() {
-    const inputs = document.querySelectorAll('.input-login')
+    const inputs = $('*.input-login')
     next = 0
 
-    inputs.forEach((item, index) => {
+    inputs.each((index, item) => {
         item.addEventListener('change', () => indentifyInputError(item, index))
 
         indentifyInputError(item, index)
     })
 
     if (next === 2) {
-        inputs.forEach(item => {
+        inputs.each((index, item) => {
             item.value = ''
             closeScreenConnect()
         })
@@ -42,19 +42,19 @@ function checkInputs() {
 }
 
 function openScreenConnect() {
-    connecting.classList.remove('display-disable')
-    main.style.filter = "blur(6px)"
+    connecting.removeClass('display-disable')
+    main.css("filter", "blur(6px)")
 
-    document.querySelector('.icon-exit').addEventListener('click', closeScreenConnect)
+    $('.icon-exit').on('click', closeScreenConnect)
 }
 
 function closeScreenConnect() {
-    connecting.classList.add('display-disable')
-    main.style.filter = "blur(0)"
+    connecting.addClass('display-disable')
+    main.css("filter", "blur(0)")
 }
 
 function indentifyInputError(item, index) {
-    const labelError = document.querySelectorAll('.input-error')
+    const labelError = $('*.input-error')
 
     if (item.value === '') {
         labelError[index].classList.remove('display-disable')
