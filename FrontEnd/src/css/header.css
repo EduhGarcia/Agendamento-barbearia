@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    background-color: var(--cor-branca);
+    background-color: var(--cor-cinza-claro);
     z-index: 1;
 }
 

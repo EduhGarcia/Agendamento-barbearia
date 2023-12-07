@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: var(--cor-cinza);
+    background-color: var(--cor-cinza-escuro);
 }
 
 main {
@@ -14,5 +14,6 @@ main {
 
 :root {
     --cor-branca: rgb(226 232 240);
-    --cor-cinza: rgb(156 163 175);
+    --cor-cinza-claro: rgb(214 211 209);
+    --cor-cinza-escuro: rgb(41 37 36); 
 }

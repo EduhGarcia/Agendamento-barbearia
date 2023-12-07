@@ -1,7 +1,7 @@
 .line {
     width: 5px;
     position: absolute;
-    background-color: var(--cor-branca);
+    background-color: var(--cor-cinza-claro);
     z-index: -1;
 }
 
@@ -32,7 +32,7 @@
 .icon-scissors-comb {
     position: absolute;
     font-size: 90px;
-    color: rgb(103, 97, 97);
+    color: var(--cor-cinza-claro);
     left: 13%;
     bottom: 22%;
 }
