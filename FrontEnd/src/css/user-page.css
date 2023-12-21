@@ -1,0 +1,25 @@
+.message-signin {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    padding: 20px;
+    background-color: green;
+    font-size: 25px;
+    color: var(--cor-branca);
+    border-radius: 5px;
+    transition: 0.8s ease-in-out;
+    z-index: -2;
+}
+
+.success-signin {
+    top: 170px;
+}
+
+.options-schedule .option-btn:hover {
+    filter: brightness(75%);
+    color: green;
+}
+
+.options-schedule .option-exit:hover {
+    color: red;
+}
