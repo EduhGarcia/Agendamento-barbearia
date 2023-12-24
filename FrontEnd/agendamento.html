@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento Barbearia</title>
+
+    <link rel="stylesheet" href="./src/css/global.css">
+    <link rel="stylesheet" href="./src/css/agender.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <section class="confirm-infos">
+        <h2>Serviço: <span class="service"></span></h2>
+
+        <div class="confirm-data">
+            <p>Data: <span class="confirm-date"></span></p>
+            <p>Horário: <span class="time-confirm"></span></p>
+            <p>Você deseja confirmar o Agendamento ?</p>
+             
+        </div>
+
+        <div class="btns-action-scheduling">
+            <button class="btn-cancel">Cancelar</button>
+            <button class="btn-confirm-infos">Confirmar</button>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="scheduling">
+            <h2 class="title-section">Agendamento</h2>
+
+            <div class="services">
+                <select name="option-service" class="standard-select options-services">
+                    <option id="default-option" class="placeholder-option">Escolha uma opção</option>
+                    <option id="hair">Cabelo</option>
+                    <option id="beard">Barba</option>
+                    <option id="hair-and-beard">Cabelo e Barba</option>
+                </select>
+
+                <select name="option-type-service" class="standard-select type-services">
+                    <option id="default-option">Escolha um tipo</option>
+                </select>
+            </div>
+
+            <p class="value-total">Valor: R$00.00</p>
+        </section>
+
+        <section class="available-times">
+            <h2 class="title-section">Horários Disponíves</h2>
+
+            <div class="container-times"></div>
+
+            <div class="confirm-scheduling">
+                <p class="attendant">Seu atendente: Ricardo</p>
+                <button class="btn-confirm-scheduling">Agendar</button>
+            </div>    
+        </section>
+    </main>
+
+    <script type="module" src="./src/scripts/agender.js"></script>
+</body>
+
+</html>

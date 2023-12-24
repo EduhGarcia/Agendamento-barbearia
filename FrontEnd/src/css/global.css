@@ -9,11 +9,33 @@ body {
 }
 
 main {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 :root {
     --cor-branca: rgb(226 232 240);
     --cor-cinza-claro: rgb(214 211 209);
     --cor-cinza-escuro: rgb(41 37 36); 
+}
+
+.btns-connect, .options-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+}
+
+.btns-connect button, .option-btn {
+    background-color: var(--cor-cinza-claro);
+    padding: 13px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 19px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    width: 400px;
 }

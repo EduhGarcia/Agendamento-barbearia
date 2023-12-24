@@ -1,25 +1,5 @@
-.login {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    justify-content: center;
-    align-items: center;
-    height: 70%;
-}
-
-.login button {
-    background-color: var(--cor-cinza-claro);
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-size: 17px;
-    transition: 0.3s ease;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    width: 400px;
-}
-
-.login button:hover, .icon-exit:hover, .btn-enter:hover {
+.login button:hover, .icon-exit:hover,
+.default-btn:hover {
     filter: brightness(75%);
 }
 
@@ -105,7 +85,7 @@
     text-transform: uppercase;
 }
 
-.connecting .btn-enter {
+.connecting .default-btn {
     background-color: lightblue;
     border: none;
     border-radius: 6px;

@@ -1,0 +1,195 @@
+.container {
+    padding: 70px 100px;
+    display: flex;
+    justify-content: center;
+    color: var(--cor-branca);
+    gap: 70px;
+}
+
+.scheduling, .available-times {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    border: 2px solid white;
+    padding: 50px;
+    border-radius: 8px;
+}
+
+.title-section {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 22px;
+    text-decoration: underline;
+}
+
+.scheduling .haircut-date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    gap: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.scheduling .services .haircut-date #input-date {
+    font-size: 23px;
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.scheduling .services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.scheduling .standard-select {
+    font-size: 22px;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 1px;
+    padding: 8px 0;
+    text-transform: uppercase;
+    border-radius: 5px;
+    outline: 0;
+    border: 3px solid transparent;
+    cursor: pointer;
+    color: rgb(161 161 170);
+}
+
+option {
+    color: rgb(113 113 122);
+}
+
+.scheduling .services .standard-select:hover {
+    border-color: lightseagreen;
+}
+
+.placeholder-option {
+    display: none;
+}
+
+.scheduling .value-total {
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+
+.available-times .container-times {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.time {
+    background-color: var(--cor-branca);
+    color: black;
+    padding: 10px 25px;
+    font-size: 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    border: none;
+    transition: .15s ease-in-out;
+    border: solid 1px transparent;
+}
+
+.time:hover, .btn-confirm-scheduling:hover {
+    filter: brightness(50%);
+}
+
+.time-selected {
+    background-color: rgb(16 185 129);
+    border-color: var(--cor-branca);
+}
+
+.time-selected:hover {
+    filter: brightness(100%);
+}
+
+.available-times .attendant {
+    font-size: 25px;
+    text-transform: capitalize;
+}
+
+.available-times .confirm-scheduling {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.available-times .confirm-scheduling .btn-confirm-scheduling {
+    padding: 15px 29px;
+    font-size: 17px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: none;
+}
+
+.confirm-infos {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 32%;
+    width: 30%;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--cor-cinza-claro);
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.confirm-infos .btns-action-scheduling {
+    display: flex;
+    justify-content: space-between;
+}
+
+.confirm-infos .service {
+    text-decoration: underline;
+}
+
+.confirm-infos .confirm-data {
+    font-size: 20px;
+}
+
+.confirm-infos .confirm-data p:last-child {
+    color: red;
+    margin-top: 20px;
+    font-size: 17px;
+}
+
+.diplay-enable {
+    display: flex;
+}
+
+.confirm-infos .btns-action-scheduling button:nth-child(1) {
+    background-color: darkred;
+}
+
+.confirm-infos .btns-action-scheduling button:nth-child(2) {
+    background-color: darkcyan;
+}
+
+.confirm-infos .btns-action-scheduling button {
+    font-size: 17px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    color: var(--cor-branca);
+    cursor: pointer;
+}
+
+span {
+    font-weight: bold;
+}

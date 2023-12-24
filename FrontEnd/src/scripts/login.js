@@ -1,7 +1,7 @@
-import { checkInputs, closeScreenConnect, openScreenConnect } from "./utilizadades.js"
+import { nextPage, closeScreenConnect, openScreenConnect } from "./utilizadades.js"
 
 export function screenLogin() {
     openScreenConnect(closeScreenConnect)
 
-    $('.btn-enter').on('click', checkInputs)
+    $('.btn-login').on('click', nextPage)
 }
