@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Agendamento {
+  id            Int       @id(map: "data_agendamento_pkey") @default(autoincrement())
+  data_agendada DateTime? @db.Date
+  email         String?   @db.VarChar(80)
+  servico       String?   @db.VarChar(30)
+  tipo_servico  String?   @db.VarChar(50)
+  horario       String?   @db.VarChar(5)
+
+  @@map("agendamentos")
+}
+
+model Usuario {
+  id    Int     @id(map: "usear_pkey") @default(autoincrement())
+  nome  String? @db.VarChar(80)
+  email String? @db.VarChar(80)
+  senha String? @db.VarChar(50)
+
+  @@map("usuarios")
+}
