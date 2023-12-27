@@ -1,5 +1,9 @@
 import { messageSignin, pageHref } from "./user-page.js"
 
+const server = axios.create({
+    baseURL: 'http://localhost:3001'
+})
+
 const DataCorteDeCabelo = $('.services')
 const select = $('.options-services')
 const typeService = $('.type-services')
@@ -9,6 +13,7 @@ const btnScheduling = $('.btn-confirm-scheduling')
 let timeActually = 5.30
 let tranformTime = timeActually + ""
 const dataAtual = new Date
+const infosSchediling = {}
 
 const dataFormatada = dataAtual.getFullYear() + '-' + (dataAtual.getMonth() + 1) + '-' + dataAtual.getDate()
 
@@ -56,12 +61,13 @@ DataCorteDeCabelo.prepend(`
     </div>
 `)
 
+
 $('#input-date').val(dataFormatada)
 
 select.on('change', screenTypeServices)
 btnScheduling.on('click', validateData)
 
-function screenTypeServices() {  
+function screenTypeServices() {
     const valueTotal = $('.value-total')
     const option = $('.services :selected')
     let countValue = 0
@@ -109,21 +115,21 @@ function validateData() {
         timeSelect === '') {
         return
     } else {
-        confirmScheduling(option[0], timeSelect)
+        confirmScheduling(option, timeSelect)
+
+        
     }
 }
 
 function confirmScheduling(serviceInfo, timeSelect) {
     const mainContent = $('main').html()
-    const infosSchediling = {}
-    
 
-    printDate(infosSchediling)
-    $('.service').text(serviceInfo.innerText)
+    $('.service').text(serviceInfo[0].innerText)
     $('.time-confirm').text(timeSelect + ' horas')
 
     infosSchediling.time = timeSelect
-    infosSchediling.service = serviceInfo.innerText
+    infosSchediling.service = serviceInfo[0].innerText
+    infosSchediling.type_service = serviceInfo[1].innerText
 
     $('.confirm-infos').addClass('diplay-enable')
     $('main').html('')
@@ -136,8 +142,25 @@ function confirmScheduling(serviceInfo, timeSelect) {
     })
 
     $('.btn-confirm-infos').on('click', () => {
-        pageHref('./usuario.html')
-        messageSignin.text('Agendamento feito com sucesso')
+        const date = infosSchediling.date
+        const time = infosSchediling.time
+        const service = infosSchediling.service
+        const typeService = infosSchediling.type_service
+
+        server.post('/agendamento', {
+            date,
+            time,
+            service,
+            typeService
+        }).then((respose) => {
+            console.log(respose);
+        }) 
+
+        server.get('/agendamento').then((respose) => {
+            console.log(respose.data);
+        }) 
+        // pageHref('./usuario.html')
+        // messageSignin.text('Agendamento feito com sucesso')
     })
 }
 
@@ -171,5 +194,5 @@ function printDate(infosSchediling) {
     }
 
     $('.confirm-date').text(dateFormatString)
-    infosSchediling.date = dateFormatString
+    infosSchediling.date = date
 }
