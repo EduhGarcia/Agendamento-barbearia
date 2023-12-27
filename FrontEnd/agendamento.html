@@ -13,22 +13,6 @@
 </head>
 
 <body>
-    <section class="confirm-infos">
-        <h2>Serviço: <span class="service"></span></h2>
-
-        <div class="confirm-data">
-            <p>Data: <span class="confirm-date"></span></p>
-            <p>Horário: <span class="time-confirm"></span></p>
-            <p>Você deseja confirmar o Agendamento ?</p>
-             
-        </div>
-
-        <div class="btns-action-scheduling">
-            <button class="btn-cancel">Cancelar</button>
-            <button class="btn-confirm-infos">Confirmar</button>
-        </div>
-    </section>
-
     <main class="container">
         <section class="scheduling">
             <h2 class="title-section">Agendamento</h2>
@@ -60,6 +44,26 @@
             </div>    
         </section>
     </main>
+
+    <section class="confirm-infos">
+        <h2>Serviço: <span class="service"></span></h2>
+
+        <div class="confirm-data">
+            <p>Data: <span class="confirm-date"></span></p>
+            <p>Horário: <span class="time-confirm"></span></p>
+            <p>Você deseja confirmar o Agendamento ?</p>
+             
+        </div>
+
+        <div class="btns-action-scheduling">
+            <button class="btn-cancel">Cancelar</button>
+            <button class="btn-confirm-infos">Confirmar</button>
+        </div>
+    </section>
+
+    <section class="alert-error">
+        <p>Preencha todos os dados!</p>
+    </section>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="module" src="./src/scripts/agender.js"></script>
