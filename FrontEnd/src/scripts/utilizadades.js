@@ -3,11 +3,18 @@ const main = $('main')
 
 let next = 0
 
+const server = axios.create({
+    baseURL: 'http://localhost:3001'
+})
+
 export function nextPage() {
     const inputs = $('*.input-login')
     const labelError = $('*.input-error')
+    const emailUsing = $('.email-using')
     next = 0
 
+    emailUsing.addClass("display-disable")
+    
     inputs.each((index, item) => {
         item.addEventListener('change', () => indentifyInputError(item, labelError[index]))
         indentifyInputError(item, labelError[index])
@@ -16,14 +23,28 @@ export function nextPage() {
     if (next === inputs.length) {
         if (inputs.length === 3 && inputs[1].value.length < 6) {
             labelError[1].classList.remove('display-disable')
-            labelError[1].innerText = 'a senha deve ter no minimo 6 digitos'
+            labelError[1].innerText = 'A senha deve ter no minimo 6 digitos'
         } else {
+            const email = inputs[0].value
+            const password = inputs[1].value
+            const name = inputs[2].value
+
+            if ($('.title-conneting').text() === 'Página de cadastro') {
+                server.post('/cadastro', {
+                    email,
+                    password,
+                    name
+                }).then((response) => {
+                    $('.info-user').append('<p class="email-using">O Email já está em uso</p>')
+                    console.log('Entrou');
+                })
+            };
+
             clearValueInput()
             window.location.href = './usuario.html'
             next = 0
             return
         }
-        
     }
 }
 

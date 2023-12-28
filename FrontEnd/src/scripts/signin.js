@@ -2,8 +2,6 @@ import { closeScreenConnect, connecting, nextPage, openScreenConnect } from "./u
 
 export function screenSignin() {
     const screenDefault = connecting.html()
-    const labelError = $('*.input-error')
-    const inputs = $('*.input-login')
 
     $('.default-btn').remove()
     $('.title-conneting').text('Página de cadastro')
@@ -13,7 +11,9 @@ export function screenSignin() {
        <label for="name">Nome</label>
        <input class="input-login" id="name" type="text">
        <label class="input-error display-disable" for="name">* Campo vazio</label>
-    </div>`)
+    </div>
+    
+    <p class="email-using display-disable">O Email já está em uso</p>`)
 
     connecting.append('<button class="default-btn btn-signin">Cadastrar</button>')
 
