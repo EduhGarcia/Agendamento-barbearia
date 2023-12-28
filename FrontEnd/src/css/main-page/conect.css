@@ -32,7 +32,7 @@
     justify-content: center;
 }
 
-.display-disable{
+.display-disable {
     display: none;
 }
 
@@ -52,6 +52,7 @@
 
 .connecting .info-user {
     display: flex;
+    position: relative;
     flex-direction: column;
     gap: 30px;
     width: 70%;
@@ -94,4 +95,13 @@
     margin: 50px 0 30px 0;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+}
+
+.connecting .email-using {
+    color: red;
+    font-size: 18px;
+    position: absolute;
+    bottom: -32px;
+    width: 100%;
+    text-align: center;
 }

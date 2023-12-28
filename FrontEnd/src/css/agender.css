@@ -193,3 +193,20 @@ option {
 span {
     font-weight: bold;
 }
+
+.alert-error {
+    background-color: darkred;
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--cor-branca);
+    padding: 22px;
+    font-size: 23px;
+    border-radius: 5px;
+    transition: 0.2s ease-in-out;
+}
+
+.active-alert {
+    top: 25px;
+}
