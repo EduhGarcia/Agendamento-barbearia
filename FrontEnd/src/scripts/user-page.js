@@ -1,9 +1,19 @@
-export const messageSignin = $('.message-signin')
-messageSignin.addClass('success-signin')
+export const server = axios.create({
+    baseURL: 'http://localhost:3001'
+})
 
-setTimeout(() => {
-    messageSignin.removeClass('success-signin')
-}, 2200)
+export const messageSignin = $('.message-signin')
+
+server.get('/agendamento').then((respose) => {
+    if (respose.data.message !== '') {
+        messageSignin.text(respose.data.message)
+        messageSignin.addClass('success-signin')
+
+        setTimeout(() => {
+            messageSignin.removeClass('success-signin')
+        }, 2200)
+    }
+})
 
 $('.option-exit').on('click', () => pageHref('./'))
 $('.option-schedule').on('click', () => pageHref('./agendamento.html'))

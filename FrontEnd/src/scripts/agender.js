@@ -61,7 +61,6 @@ DataCorteDeCabelo.prepend(`
     </div>
 `)
 
-
 $('#input-date').val(dataFormatada)
 
 select.on('change', screenTypeServices)
@@ -113,23 +112,28 @@ function validateData() {
 
     if (option[0].id === 'default-option' || option[1].id === 'default-option' ||
         timeSelect === '') {
-        return
+
+        const alertError = $('.alert-error')
+        alertError.addClass('active-alert')
+
+        setTimeout(() => {
+            alertError.removeClass('active-alert')
+        }, 1800)
     } else {
         confirmScheduling(option, timeSelect)
-
-        
     }
 }
 
 function confirmScheduling(serviceInfo, timeSelect) {
     const mainContent = $('main').html()
 
+    printDate()
     $('.service').text(serviceInfo[0].innerText)
     $('.time-confirm').text(timeSelect + ' horas')
 
     infosSchediling.time = timeSelect
     infosSchediling.service = serviceInfo[0].innerText
-    infosSchediling.type_service = serviceInfo[1].innerText
+    infosSchediling.typeService = serviceInfo[1].innerText
 
     $('.confirm-infos').addClass('diplay-enable')
     $('main').html('')
@@ -142,24 +146,16 @@ function confirmScheduling(serviceInfo, timeSelect) {
     })
 
     $('.btn-confirm-infos').on('click', () => {
-        const date = infosSchediling.date
-        const time = infosSchediling.time
-        const service = infosSchediling.service
-        const typeService = infosSchediling.type_service
+        const { date, time, service, typeService } = infosSchediling.date
 
         server.post('/agendamento', {
             date,
             time,
             service,
             typeService
-        }).then((respose) => {
-            console.log(respose);
-        }) 
+        })
 
-        server.get('/agendamento').then((respose) => {
-            console.log(respose.data);
-        }) 
-        // pageHref('./usuario.html')
+        pageHref('./usuario.html')
         // messageSignin.text('Agendamento feito com sucesso')
     })
 }
@@ -183,7 +179,7 @@ function backToScheduling(idSelect) {
     $('.btn-confirm-scheduling').on('click', validateData)
 }
 
-function printDate(infosSchediling) {
+function printDate() {
     const dateValue = $('#input-date').val()
     const date = new Date(dateValue)
     let dateFormatBR = date.toLocaleString('pt-BR', { timeZone: 'UTC' });
