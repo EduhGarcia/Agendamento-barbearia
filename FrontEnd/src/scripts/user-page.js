@@ -4,7 +4,7 @@ export const server = axios.create({
 
 export const messageSignin = $('.message-signin')
 
-server.get('/agendamento').then((respose) => {
+server.get('/message').then((respose) => {
     if (respose.data.message !== '') {
         messageSignin.text(respose.data.message)
         messageSignin.addClass('success-signin')
