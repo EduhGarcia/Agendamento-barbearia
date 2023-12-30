@@ -156,7 +156,6 @@ function confirmScheduling(serviceInfo, timeSelect) {
         })
 
         pageHref('./usuario.html')
-        // messageSignin.text('Agendamento feito com sucesso')
     })
 }
 
