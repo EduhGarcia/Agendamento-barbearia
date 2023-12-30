@@ -11,13 +11,13 @@ app.use(cors())
 let alertAnnimation;
 let emailUser;
 
-app.get('/agendamento', function (req, res) {
+app.get('/message', function (req, res) {
     res.status(200).json(alertAnnimation)
     alertAnnimation = { message: '' }
 })
 
 app.post('/agendamento', async function (req, res) {
-    const {date, time, service, type_service} = req.body
+    const { date, time, service, type_service } = req.body
 
     await prisma.agendamento.create({
         data: {
@@ -35,12 +35,31 @@ app.post('/agendamento', async function (req, res) {
     res.status(201)
 })
 
+app.post('/login', async function (req, res) {
+    try {
+        const { email, password } = req.body
+        const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
+
+        if (!indentifyUser) {
+            return res.send({ message: 'Usuário não encontrado' })
+        } else if (indentifyUser.senha !== password) {
+            return res.send({ message: 'Senha incorreta' })
+        };
+
+        emailUser = email
+
+        res.status(201).send({ message: indentifyUser.senha })
+    } catch (err){
+        return res.status(501).send({ message: 'Falha ao encontrar usuário' })
+    }
+})
+
 app.post('/cadastro', async function (req, res) {
     const { name, email, password } = req.body
     const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 
     if (indentifyUser) {
-        return res.send({message: 'possui cadastro'})
+        return res.send({ message: 'possui cadastro' })
     }
 
     emailUser = email
