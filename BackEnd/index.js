@@ -9,28 +9,32 @@ app.use(express.json())
 app.use(cors())
 
 let alertAnnimation;
-let emailUser;
+let userInfo = {
+    email: '',
+    name: '',
+    alertAnnimation: ''
+};
 
 app.get('/message', function (req, res) {
-    res.status(200).json(alertAnnimation)
-    alertAnnimation = { message: '' }
+    res.status(200).send(userInfo)
+    userInfo.alertAnnimation = ''
 })
 
 app.post('/agendamento', async function (req, res) {
-    const { date, time, service, type_service } = req.body
+    const { date, time, service, typeService } = req.body
+    const { email } = userInfo
 
     await prisma.agendamento.create({
         data: {
             data_agendada: date,
             horario: time,
             servico: service,
-            tipo_servico: type_service,
-            email: emailUser,
-
+            tipo_servico: typeService,
+            email: email,
         }
     })
 
-    alertAnnimation = { message: "Agendamento Realizado!" }
+    userInfo.alertAnnimation = "Agendamento Realizado!"
 
     res.status(201)
 })
@@ -46,10 +50,11 @@ app.post('/login', async function (req, res) {
             return res.send({ message: 'Senha incorreta' })
         };
 
-        emailUser = email
+        userInfo.email = email
+        userInfo.name = indentifyUser.nome
 
-        res.status(201).send({ message: indentifyUser.senha })
-    } catch (err){
+        res.status(200).send({ message: 'User found' })
+    } catch (err) {
         return res.status(501).send({ message: 'Falha ao encontrar usuário' })
     }
 })
@@ -62,19 +67,20 @@ app.post('/cadastro', async function (req, res) {
         return res.send({ message: 'possui cadastro' })
     }
 
-    emailUser = email
+    userInfo.email = email
+    userInfo.name = name
 
-    // await prisma.usuario.create({
-    //     data: {
-    //         nome: name,
-    //         email: email,
-    //         senha: password
-    //     }
-    // })
+    await prisma.usuario.create({
+        data: {
+            nome: name,
+            email: email,
+            senha: password
+        }
+    })
 
-    alertAnnimation = { message: "Cadastrado com sucesso!" }
+    userInfo.alertAnnimation = "Cadastrado com sucesso!"
 
-    res.status(201)
+    res.status(201).send({ message: 'User create' })
 })
 
 app.listen(3001, () => console.log('servidor rodando'))
