@@ -5,8 +5,9 @@ export const server = axios.create({
 export const messageSignin = $('.message-signin')
 
 server.get('/message').then((respose) => {
-    if (respose.data.message !== '') {
-        messageSignin.text(respose.data.message)
+    $('.username').text(respose.data.name)
+    if (respose.data.alertAnnimation !== '') {
+        messageSignin.text(respose.data.alertAnnimation)
         messageSignin.addClass('success-signin')
 
         setTimeout(() => {
@@ -17,6 +18,7 @@ server.get('/message').then((respose) => {
 
 $('.option-exit').on('click', () => pageHref('./'))
 $('.option-schedule').on('click', () => pageHref('./agendamento.html'))
+
 
 export function pageHref(location) {
     window.location.href = location

@@ -146,7 +146,7 @@ function confirmScheduling(serviceInfo, timeSelect) {
     })
 
     $('.btn-confirm-infos').on('click', () => {
-        const { date, time, service, typeService } = infosSchediling.date
+        const { date, time, service, typeService } = infosSchediling
 
         server.post('/agendamento', {
             date,
