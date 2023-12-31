@@ -21,47 +21,31 @@ export function nextPage() {
     })
 
     if (next === inputs.length) {
-        if (inputs.length === 3 && inputs[1].value.length < 6) {
-            labelError[1].classList.remove('display-disable')
-            labelError[1].innerText = 'A senha deve ter no minimo 6 digitos'
-        } else {
-            const email = inputs[0].value
-            const password = inputs[1].value
-            const name = inputs[2] !== undefined ? inputs[2].value : ''
+        const email = inputs[0].value
+        const password = inputs[1].value
+        const name = inputs[2] !== undefined ? inputs[2].value : ''
 
-            if ($('.title-conneting').text() === 'Página de cadastro') {
-                server.post('/cadastro', {
-                    email,
-                    password,
-                    name
-                }).then((response) => {
-                    emailUsing.removeClass('display-disable')
-                })
-            } else {
-                server.post('/login', {
-                    email,
-                    password
-                }).then((response) => {
-                    if (response.data.message.toUpperCase() === 'SENHA INCORRETA') {
-                        labelError[1].innerText = 'senha incorreta';
-                        labelError[1].classList.remove('display-disable')
-                        
-                    } else if (response.data.message.toUpperCase() === 'USUÁRIO NÃO ENCONTRADO') {
-                        labelError[0].innerText = 'Usuário não encontrado';
-                        labelError[0].classList.remove('display-disable')
-                        
-                    }
-
-                    console.log(response);
-
-                    return
-                })
-
-                clearValueInput()
-                // window.location.href = './usuario.html'
-                next = 0
+        if (inputs.length === 3) {
+            if (inputs[1].value.length < 6) {
+                return changeTextLabel('A senha deve ter no minimo 6 digitos', labelError[1])
             }
-            return
+            server.post('/cadastro', {
+                email,
+                password,
+                name
+            }).then((response) => {
+                response.data.message === 'User create' ? userAllowed() : emailUsing.removeClass('display-disable')
+            })
+        } else {
+            server.post('/login', {
+                email,
+                password
+            }).then((response) => {
+                const messageLabel = response.data.message
+                let label = messageLabel === 'Senha incorreta' ? labelError[1] : labelError[0]
+
+                messageLabel === 'User found' ? userAllowed() : changeTextLabel(messageLabel, label)
+            })
         }
     }
 }
@@ -75,9 +59,20 @@ export function indentifyInputError(item, labelError) {
     }
 }
 
+function changeTextLabel(message, label) {
+    label.classList.remove('display-disable')
+    label.innerText = message
+}
+
+function userAllowed() {
+    clearValueInput()
+    window.location.href = './usuario.html'
+    return next = 0
+}
+
 export function openScreenConnect(functionButton) {
     connecting.removeClass('display-disable')
-    main.css("filter", "blur(6px)")
+    main.addClass('filterBlur')
 
     $('.icon-exit').on('click', functionButton)
 }
