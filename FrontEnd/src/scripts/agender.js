@@ -15,7 +15,11 @@ let tranformTime = timeActually + ""
 const dataAtual = new Date
 const infosSchediling = {}
 
-const dataFormatada = dataAtual.getFullYear() + '-' + (dataAtual.getMonth() + 1) + '-' + dataAtual.getDate()
+const day = dataAtual.getDate() < 10 ? '0' + dataAtual.getDate() : dataAtual.getDate()
+const month = dataAtual.getMonth() + 1 < 10 ? '0' + (dataAtual.getMonth() + 1)
+: dataAtual.getMonth() + 1
+
+export const dateFormat = dataAtual.getFullYear() + '-' + month + '-' + day
 
 while (timeActually < 19.00) {
     let stringTimeActually = ''
@@ -57,14 +61,15 @@ identifyTimeSelected()
 DataCorteDeCabelo.prepend(`
     <div class="haircut-date">
         <label for="input-date">Data do agendamento</label>
-        <input id="input-date" type="date" min="${dataFormatada}">
+        <input id="input-date" type="date" min="${dateFormat}">
     </div>
 `)
 
-$('#input-date').val(dataFormatada)
+$('#input-date').val(dateFormat)
 
 select.on('change', screenTypeServices)
 btnScheduling.on('click', validateData)
+$('.btn-return').on('click', () => pageHref('./usuario.html'))
 
 function screenTypeServices() {
     const valueTotal = $('.value-total')
@@ -173,7 +178,7 @@ function backToScheduling(idSelect) {
         return "true"
     })
 
-    $('#input-date').val(dataFormatada)
+    $('#input-date').val(dateFormat)
     $('.confirm-infos').removeClass('diplay-enable')
     $('.btn-confirm-scheduling').on('click', validateData)
 }
