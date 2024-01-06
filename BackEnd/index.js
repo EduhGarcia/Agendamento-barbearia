@@ -8,36 +8,11 @@ const prisma = new PrismaClient()
 app.use(express.json())
 app.use(cors())
 
-let alertAnnimation;
 let userInfo = {
     email: '',
     name: '',
     alertAnnimation: ''
 };
-
-app.get('/message', function (req, res) {
-    res.status(200).send(userInfo)
-    userInfo.alertAnnimation = ''
-})
-
-app.post('/agendamento', async function (req, res) {
-    const { date, time, service, typeService } = req.body
-    const { email } = userInfo
-
-    await prisma.agendamento.create({
-        data: {
-            data_agendada: date,
-            horario: time,
-            servico: service,
-            tipo_servico: typeService,
-            email: email,
-        }
-    })
-
-    userInfo.alertAnnimation = "Agendamento Realizado!"
-
-    res.status(201)
-})
 
 app.post('/login', async function (req, res) {
     try {
@@ -81,6 +56,56 @@ app.post('/cadastro', async function (req, res) {
     userInfo.alertAnnimation = "Cadastrado com sucesso!"
 
     res.status(201).send({ message: 'User create' })
+})
+
+app.post('/agendamento', async function (req, res) {
+    const { date, time, service, typeService } = req.body
+    const { email } = userInfo
+
+    await prisma.agendamento.create({
+        data: {
+            data_agendada: date,
+            horario: time,
+            servico: service,
+            tipo_servico: typeService,
+            email: email,
+        }
+    })
+
+    userInfo.alertAnnimation = "Agendamento Realizado!"
+
+    res.status(201)
+})
+
+app.delete('/cancelar-agendamento/:id', async function (req, res) {
+    userInfo.alertAnnimation = "Agendamento Cancelado"
+
+    const id = Number(req.params.id);
+    
+    await prisma.agendamento.delete({ where: { id } })
+
+    res.status(200)
+})
+
+app.get('/historico', async function (req, res) {
+    const historicUser = await prisma.agendamento.findMany({
+        where: {
+            email: {
+                equals: userInfo.email
+            }
+        }
+    })
+
+    if(historicUser.length === 0) {
+        return res.send({message: 'Nenhum agendamento realizado'})
+    }
+
+    return res.status(200).send(historicUser)
+})
+
+app.get('/message', function (req, res) {
+    res.status(200).json(userInfo)
+    userInfo.alertAnnimation = ''
 })
 
 app.listen(3001, () => console.log('servidor rodando'))
