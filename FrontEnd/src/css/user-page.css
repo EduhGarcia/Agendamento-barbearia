@@ -1,3 +1,7 @@
+.header .username {
+    text-transform: capitalize;
+}
+
 .message-signin {
     position: absolute;
     top: 60px;
@@ -22,4 +26,103 @@
 
 .options-schedule .option-exit:hover {
     color: red;
+}
+
+.query-scheduling {
+    width: 28%;
+    height: 50%;
+    background-color: var(--cor-cinza-claro);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    align-items: center;
+    padding: 30px;
+    flex-direction: column;
+    display: none;
+    gap: 40px;
+}
+
+.query-scheduling .title-screen-float {
+    font-size: 25px;
+    text-align: center;
+    width: 80%;
+}
+
+.query-scheduling .container-historic {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 330px;
+    overflow: auto;
+}
+
+.query-scheduling .item-historic {
+    list-style: none;
+    font-size: 19px;
+    border: solid 2px var(--cor-cinza-escuro);
+    padding: 7px;
+    padding-right: 31px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.query-scheduling .item-historic button {
+    font-size: 16px;
+    padding: 6px 8px;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    border-radius: 4px;
+}
+
+.query-scheduling .item-historic button:nth-child(1) {
+    background-color: gray;
+    color: var(--cor-cinza-claro);
+}
+
+.query-scheduling .item-historic button:nth-child(2) {
+    background-color: darkred;
+    color: var(--cor-cinza-claro);
+}
+
+.query-scheduling .item-historic p {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.query-scheduling .item-historic div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.display-enable {
+    display: flex;
+}
+
+span {
+    font-weight: bold;
+}
+
+.fa-trash {
+    color: red;
+    position: absolute;
+    right: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.not-found {
+    color: red;
+    font-size: 20px;
+    text-align: center;
+    background-color: lightcoral;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 70px 40px 0 40px;
+    list-style: none;
 }

@@ -41,6 +41,7 @@
     text-align: center;
     padding: 5px;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .scheduling .services {
@@ -101,12 +102,12 @@ option {
     border: solid 1px transparent;
 }
 
-.time:hover, .btn-confirm-scheduling:hover {
+.time:hover, .btn-confirm-scheduling:hover, .btn-return:hover {
     filter: brightness(50%);
 }
 
 .time-selected {
-    background-color: rgb(16 185 129);
+    background-color: rgb(8 145 178);
     border-color: var(--cor-branca);
 }
 
@@ -132,6 +133,7 @@ option {
     text-transform: uppercase;
     border-radius: 4px;
     border: none;
+    transition: 0.3s ease-in-out;
 }
 
 .confirm-infos {
@@ -209,4 +211,17 @@ span {
 
 .active-alert {
     top: 25px;
+}
+
+.btn-return {
+    background-color: var(--cor-branca);
+    position: absolute;
+    color: black;
+    top: 50px;
+    left: 50px;
+    font-size: 24px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
 }

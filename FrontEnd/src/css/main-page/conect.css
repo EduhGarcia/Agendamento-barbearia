@@ -3,16 +3,6 @@
     filter: brightness(75%);
 }
 
-.icon-exit {
-    color: red;
-    position: absolute;
-    left: 35px;
-    top: 40px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-}
-
 .connecting {
     display: flex;
     flex-direction: column;

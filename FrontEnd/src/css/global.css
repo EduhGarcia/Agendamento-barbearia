@@ -39,3 +39,17 @@ main {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     width: 400px;
 }
+
+.filterBlur {
+    filter: blur(6px);
+}
+
+.icon-exit {
+    color: red;
+    position: absolute;
+    left: 35px;
+    top: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
