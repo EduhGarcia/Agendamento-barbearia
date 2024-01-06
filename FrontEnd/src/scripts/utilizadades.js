@@ -24,11 +24,15 @@ export function nextPage() {
         const email = inputs[0].value
         const password = inputs[1].value
         const name = inputs[2] !== undefined ? inputs[2].value : ''
+        const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
         if (inputs.length === 3) {
-            if (inputs[1].value.length < 6) {
-                return changeTextLabel('A senha deve ter no minimo 6 digitos', labelError[1])
-            }
+            if (!emailRegex.test(email)) changeTextLabel('Email inválido', labelError[0]);
+            
+            if (inputs[1].value.length < 6) changeTextLabel('A senha deve ter no minimo 6 digitos', labelError[1])
+            
+            if ($('.info-user .info-input *.display-disable').length !== 3) return;
+            
             server.post('/cadastro', {
                 email,
                 password,
@@ -79,7 +83,7 @@ export function openScreenConnect(functionButton) {
 
 export function closeScreenConnect() {
     connecting.addClass('display-disable')
-    main.css("filter", "blur(0)")
+    main.removeClass('filterBlur')
 
     removeLabelError()
 }
