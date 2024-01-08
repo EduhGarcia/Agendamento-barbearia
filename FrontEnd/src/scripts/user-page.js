@@ -4,16 +4,16 @@ export const server = axios.create({
     baseURL: 'http://localhost:3001'
 })
 
-export const messageSignin = $('.message-signin')
+export const containerMessage = $('.container-message')
 
 server.get('/message').then((response) => {
     $('.username').text(response.data.name)
     if (response.data.alertAnnimation !== '') {
-        messageSignin.text(response.data.alertAnnimation)
-        messageSignin.addClass('success-signin')
+        containerMessage.text(response.data.alertAnnimation)
+        containerMessage.addClass('success-message')
 
         setTimeout(() => {
-            messageSignin.removeClass('success-signin')
+            containerMessage.removeClass('success-message')
         }, 2200)
     }
 })
@@ -95,14 +95,16 @@ function trashScheduling(i, HistoricContent) {
         setScreenFloat()
         server.delete('/cancelar-agendamento/' + i.target.id)
 
+        containerMessage.css("background-color", "darkred")
+
         server.get('/message').then((response) => {
-            messageSignin.text(response.data.alertAnnimation)
-            messageSignin.addClass('success-signin')
+            containerMessage.text(response.data.alertAnnimation)
+            containerMessage.addClass('success-message')
 
             setTimeout(() => {
-                messageSignin.removeClass('success-signin')
+                containerMessage.removeClass('success-message')
+                
             }, 2200)
-
         })
     })
 }
