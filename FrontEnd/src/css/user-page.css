@@ -2,7 +2,7 @@
     text-transform: capitalize;
 }
 
-.message-signin {
+.container-message {
     position: absolute;
     top: 60px;
     right: 60px;
@@ -15,7 +15,7 @@
     z-index: -2;
 }
 
-.success-signin {
+.success-message {
     top: 170px;
 }
 
