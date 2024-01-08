@@ -1,4 +1,4 @@
-import { messageSignin, pageHref } from "./user-page.js"
+import { pageHref } from "./user-page.js"
 
 const server = axios.create({
     baseURL: 'http://localhost:3001'
@@ -17,58 +17,30 @@ const infosSchediling = {}
 
 const day = dataAtual.getDate() < 10 ? '0' + dataAtual.getDate() : dataAtual.getDate()
 const month = dataAtual.getMonth() + 1 < 10 ? '0' + (dataAtual.getMonth() + 1)
-: dataAtual.getMonth() + 1
+    : dataAtual.getMonth() + 1
 
 export const dateFormat = dataAtual.getFullYear() + '-' + month + '-' + day
-
-while (timeActually < 19.00) {
-    let stringTimeActually = ''
-
-    if (tranformTime[2] == '3' || tranformTime[3] == '3') {
-        timeActually += 0.70
-
-        tranformTime = timeActually < 10.0 ? "0" + timeActually.toFixed(2) :
-            timeActually.toFixed(2) + ""
-
-        for (let i = 0; i < tranformTime.length; i++) {
-            if (tranformTime[i] === '.') {
-                stringTimeActually += ':'
-            } else {
-                stringTimeActually += tranformTime[i]
-            }
-        }
-
-    } else {
-        timeActually += 0.30
-
-        tranformTime = timeActually < 10.0 ? "0" + timeActually.toFixed(2) :
-            timeActually.toFixed(2) + ""
-
-        for (let i = 0; i < tranformTime.length; i++) {
-            if (tranformTime[i] === '.') {
-                stringTimeActually += ':'
-            } else {
-                stringTimeActually += tranformTime[i]
-            }
-        }
-    }
-
-    containerTimes.append(`<button class="time">${stringTimeActually}</button>`)
-}
-
-identifyTimeSelected()
 
 DataCorteDeCabelo.prepend(`
     <div class="haircut-date">
         <label for="input-date">Data do agendamento</label>
         <input id="input-date" type="date" min="${dateFormat}">
     </div>
-`)
+    `)
 
-$('#input-date').val(dateFormat)
+const inputDate = $('#input-date')
+
+inputDate.val(dateFormat)
+
+printTimesAvailables(inputDate.val())
 
 select.on('change', screenTypeServices)
 btnScheduling.on('click', validateData)
+
+inputDate.on('input', () => {
+    printTimesAvailables(inputDate.val())
+})
+
 $('.btn-return').on('click', () => pageHref('./usuario.html'))
 
 function screenTypeServices() {
@@ -109,6 +81,64 @@ function screenTypeServices() {
     }
 
     valueTotal.text(`Valor: R$ ${countValue.toFixed(2)}`)
+}
+
+function printTimesAvailables(dateValue) {
+    containerTimes.html('')
+    let timesUsed = []
+
+    server.get('/horarios/' + dateValue).then((response) => {
+        response.data.map((item) => {
+            timesUsed.push(item.horario)
+        })
+
+        while (timeActually < 19.00) {
+            let stringTimeActually = ''
+
+            if (tranformTime[2] == '3' || tranformTime[3] == '3') {
+                timeActually += 0.70
+
+                tranformTime = timeActually < 10.0 ? "0" + timeActually.toFixed(2) :
+                    timeActually.toFixed(2) + ""
+
+                for (let i = 0; i < tranformTime.length; i++) {
+                    if (tranformTime[i] === '.') {
+                        stringTimeActually += ':'
+                    } else {
+                        stringTimeActually += tranformTime[i]
+                    }
+                }
+
+            } else {
+                timeActually += 0.30
+
+                tranformTime = timeActually < 10.0 ? "0" + timeActually.toFixed(2) :
+                    timeActually.toFixed(2) + ""
+
+                for (let i = 0; i < tranformTime.length; i++) {
+                    if (tranformTime[i] === '.') {
+                        stringTimeActually += ':'
+                    } else {
+                        stringTimeActually += tranformTime[i]
+                    }
+                }
+            }
+
+            const searchTime = timesUsed.find(element => element == stringTimeActually)
+
+            if (searchTime === undefined) {
+                containerTimes.append(`<button class="time">${stringTimeActually}</button>`)
+                stringTimeActually = ''
+            }
+        }
+
+        identifyTimeSelected()
+
+        timeActually = 5.30
+        tranformTime = timeActually + ""
+    })
+
+    
 }
 
 function validateData() {
