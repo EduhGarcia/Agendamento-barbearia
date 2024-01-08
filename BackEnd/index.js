@@ -9,7 +9,7 @@ app.use(express.json())
 app.use(cors())
 
 let userInfo = {
-    email: '',
+    email: null,
     name: '',
     alertAnnimation: ''
 };
@@ -62,7 +62,9 @@ app.post('/agendamento', async function (req, res) {
     const { date, time, service, typeService } = req.body
     const { email } = userInfo
 
-    await prisma.agendamento.create({
+   
+
+    const addScheduling = await prisma.agendamento.create({
         data: {
             data_agendada: date,
             horario: time,
@@ -72,9 +74,26 @@ app.post('/agendamento', async function (req, res) {
         }
     })
 
+    console.log(addScheduling);
     userInfo.alertAnnimation = "Agendamento Realizado!"
 
     res.status(201)
+})
+
+app.get('/horarios/:date', async function (req, res) {
+    const dateInput = new Date(req.params.date);
+
+    if (dateInput == 'Invalid Date') return
+
+    const searchTimes = await prisma.agendamento.findMany({
+        where: {
+            data_agendada: {
+                equals: dateInput
+            }
+        }
+    })
+
+    return res.status(200).send(searchTimes)
 })
 
 app.delete('/cancelar-agendamento/:id', async function (req, res) {
