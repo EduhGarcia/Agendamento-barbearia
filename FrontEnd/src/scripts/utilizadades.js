@@ -81,11 +81,32 @@ export function openScreenConnect(functionButton) {
     $('.icon-exit').on('click', functionButton)
 }
 
+export function hideOrShowPassword() {
+    const iconEye = $('#icon-eye')
+
+    console.log(iconEye);
+    iconEye.on('click', (item) => {
+        
+        if ($('.fa-eye').length !== 0) {
+            $('#password').attr('type', 'text')
+    
+            iconEye.removeClass().addClass('fa-regular fa-eye-slash')
+        } else {
+            $('#password').attr('type', 'password')
+        
+            iconEye.removeClass().addClass('fa-regular fa-eye')
+        }         
+    })  
+}
+
 export function closeScreenConnect() {
     connecting.addClass('display-disable')
     main.removeClass('filterBlur')
 
     removeLabelError()
+
+    $('#password').attr('type', 'password')
+    $('#icon-eye').removeClass().addClass('fa-regular fa-eye')
 }
 
 function removeLabelError() {

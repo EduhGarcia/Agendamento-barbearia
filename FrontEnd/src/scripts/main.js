@@ -1,8 +1,8 @@
 import { screenLogin } from "./login.js"
 import { screenSignin } from "./signin.js"
+import { hideOrShowPassword } from "./utilizadades.js"
 
-const btnLogin = $('#log-in')
-const btnSignin = $('#sign-in')
+$('#log-in').on('click', screenLogin)
+$('#sign-in').on('click', screenSignin)
 
-btnLogin.on('click', screenLogin)
-btnSignin.on('click', screenSignin)
+hideOrShowPassword()

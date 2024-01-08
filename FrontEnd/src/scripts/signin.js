@@ -1,4 +1,4 @@
-import { closeScreenConnect, connecting, nextPage, openScreenConnect } from "./utilizadades.js"
+import { closeScreenConnect, connecting, hideOrShowPassword, nextPage, openScreenConnect } from "./utilizadades.js"
 
 export function screenSignin() {
     const screenDefault = connecting.html()
@@ -26,5 +26,6 @@ export function screenSignin() {
 
 function closeSignin(screen) {
     connecting.html(screen)
+    hideOrShowPassword()
     closeScreenConnect()
 }
