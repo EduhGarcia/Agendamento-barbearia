@@ -35,91 +35,104 @@ app.post('/login', async function (req, res) {
 })
 
 app.post('/cadastro', async function (req, res) {
-    const { name, email, password } = req.body
-    const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
+    try {
+        const { name, email, password } = req.body
+        const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 
-    if (indentifyUser) {
-        return res.send({ message: 'possui cadastro' })
-    }
-
-    userInfo.email = email
-    userInfo.name = name
-
-    await prisma.usuario.create({
-        data: {
-            nome: name,
-            email: email,
-            senha: password
+        if (indentifyUser) {
+            return res.send({ message: 'possui cadastro' })
         }
-    })
 
-    userInfo.alertAnnimation = "Cadastrado com sucesso!"
+        userInfo.email = email
+        userInfo.name = name
 
-    res.status(201).send({ message: 'User create' })
+        await prisma.usuario.create({
+            data: {
+                nome: name,
+                email: email,
+                senha: password
+            }
+        })
+
+        userInfo.alertAnnimation = "Cadastrado com sucesso!"
+
+        res.status(201).send({ message: 'User create' })
+    } catch (err) {
+        return res.status(501).send({ message: 'Falha ao cadastrar usuário' })
+    }
 })
 
 app.post('/agendamento', async function (req, res) {
-    const { date, time, service, typeService } = req.body
-    const { email } = userInfo
+    try {
+        const { date, time, service, typeService } = req.body
+        const { email } = userInfo
 
-   
+        const addScheduling = await prisma.agendamento.create({
+            data: {
+                data_agendada: date,
+                horario: time,
+                servico: service,
+                tipo_servico: typeService,
+                email: email,
+            }
+        })
 
-    const addScheduling = await prisma.agendamento.create({
-        data: {
-            data_agendada: date,
-            horario: time,
-            servico: service,
-            tipo_servico: typeService,
-            email: email,
-        }
-    })
+        userInfo.alertAnnimation = "Agendamento Realizado!"
 
-    console.log(addScheduling);
-    userInfo.alertAnnimation = "Agendamento Realizado!"
-
-    res.status(201)
+        res.status(201)
+    } catch (err) {
+        return res.status(501).send({ message: 'Não foi possível realizar o agendamento' })
+    }
 })
 
 app.get('/horarios/:date', async function (req, res) {
-    const dateInput = new Date(req.params.date);
+    try {
+        const dateInput = new Date(req.params.date);
+        if (dateInput == 'Invalid Date') return
 
-    if (dateInput == 'Invalid Date') return
-
-    const searchTimes = await prisma.agendamento.findMany({
-        where: {
-            data_agendada: {
-                equals: dateInput
+        const searchTimes = await prisma.agendamento.findMany({
+            where: {
+                data_agendada: {
+                    equals: dateInput
+                }
             }
-        }
-    })
+        })
 
-    return res.status(200).send(searchTimes)
+        return res.status(200).send(searchTimes)
+    } catch (err) {
+        return res.status(501).send({ message: 'Não foi possível consultar horários' })
+    }
 })
 
 app.delete('/cancelar-agendamento/:id', async function (req, res) {
-    userInfo.alertAnnimation = "Agendamento Cancelado"
+    try {
+        const id = Number(req.params.id);
+        await prisma.agendamento.delete({ where: { id } })
 
-    const id = Number(req.params.id);
-    
-    await prisma.agendamento.delete({ where: { id } })
-
-    res.status(200)
+        return res.status(200).send({ messsageAlert: 'Agendamento Cancelado'})
+    } catch (err) {
+        return res.status(501).send({ message: 'Falha ao cancelar o agendamento' })
+    }
 })
 
 app.get('/historico', async function (req, res) {
-    const historicUser = await prisma.agendamento.findMany({
-        where: {
-            email: {
-                equals: userInfo.email
+    try {
+        const historicUser = await prisma.agendamento.findMany({
+            where: {
+                email: {
+                    equals: userInfo.email
+                }
             }
+        })
+
+        if (historicUser.length === 0) {
+            return res.send({ message: 'Nenhum agendamento realizado' })
         }
-    })
 
-    if(historicUser.length === 0) {
-        return res.send({message: 'Nenhum agendamento realizado'})
+        return res.status(200).send(historicUser)
+    } catch (err) {
+        return res.status(501).send({ message: 'Não foi possível consultar o histórico' })
     }
-
-    return res.status(200).send(historicUser)
 })
 
 app.get('/message', function (req, res) {
