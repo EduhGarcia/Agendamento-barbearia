@@ -20,9 +20,9 @@ app.post('/login', async function (req, res) {
         const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 
         if (!indentifyUser) {
-            return res.send({ message: 'Usuário não encontrado' })
+            return res.send({ message: 'Usuário não encontrado' }).status(401)
         } else if (indentifyUser.senha !== password) {
-            return res.send({ message: 'Senha incorreta' })
+            return res.send({ message: 'Senha incorreta' }).status(401)
         };
 
         userInfo.email = email
@@ -40,7 +40,7 @@ app.post('/cadastro', async function (req, res) {
         const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 
         if (indentifyUser) {
-            return res.send({ message: 'possui cadastro' })
+            return res.send({ message: 'possui cadastro' }).status(400)
         }
 
         userInfo.email = email
@@ -67,7 +67,7 @@ app.post('/agendamento', async function (req, res) {
         const { date, time, service, typeService } = req.body
         const { email } = userInfo
 
-        const addScheduling = await prisma.agendamento.create({
+        await prisma.agendamento.create({
             data: {
                 data_agendada: date,
                 horario: time,
