@@ -11,7 +11,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 40%;
-    border: 2px solid white;
+    border: 2px solid var(--cor-branca);
     padding: 50px;
     border-radius: 8px;
 }
@@ -21,6 +21,7 @@
     text-align: center;
     font-size: 22px;
     text-decoration: underline;
+    letter-spacing: 3px;
 }
 
 .scheduling .haircut-date {
@@ -107,8 +108,9 @@ option {
 }
 
 .time-selected {
-    background-color: rgb(8 145 178);
+    background: -moz-linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%); background: -webkit-linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%); background: linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%);
     border-color: var(--cor-branca);
+    color: var(--cor-branca);
 }
 
 .time-selected:hover {
@@ -134,6 +136,7 @@ option {
     border-radius: 4px;
     border: none;
     transition: 0.3s ease-in-out;
+    font-weight: 700;
 }
 
 .confirm-infos {
@@ -147,9 +150,11 @@ option {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--cor-cinza-claro);
+    background: -moz-linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%); background: -webkit-linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%); background: linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%);
     padding: 25px;
     border-radius: 8px;
+    color: var(--cor-branca);
+    border: 2px solid var(--cor-branca);
 }
 
 .confirm-infos .btns-action-scheduling {
@@ -166,7 +171,7 @@ option {
 }
 
 .confirm-infos .confirm-data p:last-child {
-    color: red;
+    color: var(--verde-claro);
     margin-top: 20px;
     font-size: 17px;
 }
@@ -176,11 +181,11 @@ option {
 }
 
 .confirm-infos .btns-action-scheduling button:nth-child(1) {
-    background-color: darkred;
+    background-color: var(--cor-vermelha);
 }
 
 .confirm-infos .btns-action-scheduling button:nth-child(2) {
-    background-color: darkcyan;
+    background-color: var(--verde-claro);
 }
 
 .confirm-infos .btns-action-scheduling button {
@@ -197,9 +202,9 @@ span {
 }
 
 .alert-error {
-    background-color: darkred;
+    background-color: var(--cor-vermelha);
     position: absolute;
-    top: -70px;
+    top: -80px;
     left: 50%;
     transform: translateX(-50%);
     color: var(--cor-branca);

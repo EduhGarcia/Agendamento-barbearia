@@ -1,6 +1,6 @@
-.default-btn:hover, .icon-exit:hover,
+.default-btn-connect:hover,
 .btns-connect button:hover {
-    filter: brightness(75%);
+    opacity: 0.6;
 }
 
 .connecting {
@@ -20,6 +20,8 @@
     transform: translate(-50%, -50%);
     transition: 0.7s ease-in-out;
     justify-content: center;
+    background: -moz-linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%); background: -webkit-linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%); background: linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%);
+    color: var(--cinza-claro);
 }
 
 .display-disable {
@@ -37,7 +39,6 @@
     text-align: center;
     padding-bottom: 20px;
     width: 90%;
-    border-bottom: 2px solid var(--cor-cinza-claro);
 }
 
 .connecting .info-user {
@@ -59,12 +60,21 @@
 .connecting .info-user .info-input input{
     font-size: 18px;
     padding: 4px 8px;
-    border-radius: 6px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--cinza-claro);
+    color: var(--cinza-claro);
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px rgb(68 64 60) inset;
+    border: 1px solid black;
+    -webkit-text-fill-color: var(--cor-branca);
 }
 
 .connecting .info-user .info-input input:focus {
     outline: 0;
-    border: solid 2px rgb(16 185 129);
+    border-bottom: 1px solid rgb(16 185 129);
 }
 
 .connecting .info-user .info-input .input-error {
@@ -72,12 +82,13 @@
     bottom: -22px;
     left: 4px;
     font-size: 13px;
-    color: red;
+    color: rgb(185 28 28);
     text-transform: uppercase;
 }
 
-.connecting .default-btn {
-    background-color: lightblue;
+.connecting .default-btn-connect {
+    background: #6e7ff3; background: -moz-linear-gradient(-121deg,  #6e7ff3 0%,#1d4652 0%,#3e7c8a 100%);
+    background: -webkit-linear-gradient(-121deg,  #6e7ff3 0%,#1d4652 0%,#3e7c8a 100%); background: linear-gradient(-121deg,  #6e7ff3 0%,#1d4652 0%,#3e7c8a 100%);
     border: none;
     border-radius: 6px;
     font-size: 18px;
@@ -88,17 +99,17 @@
 }
 
 .connecting .email-using {
-    color: red;
+    color: var(--cor-vermelha);
     font-size: 18px;
     position: absolute;
-    bottom: -32px;
+    bottom: -36px;
     width: 100%;
     text-align: center;
 }
 
 .info-user .info-input i {
     position: absolute;
-    top: 35px;
+    top: 3px;
     right: 8px;
     cursor: pointer;
     color: gray;

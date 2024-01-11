@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,700&family=Tektur:wght@700&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -5,7 +7,8 @@
 }
 
 body {
-    background-color: var(--cor-cinza-escuro);
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(149deg, rgba(45,82,112,1) 18%, rgba(33,48,60,1) 36%, rgba(34,50,62,1) 62%, rgba(47,85,111,1) 81%);
 }
 
 main {
@@ -14,8 +17,10 @@ main {
 
 :root {
     --cor-branca: rgb(226 232 240);
-    --cor-cinza-claro: rgb(214 211 209);
-    --cor-cinza-escuro: rgb(41 37 36); 
+    --cinza-claro: rgb(214 211 209);
+    --cinza-escuro: rgb(41 37 36);
+    --cor-vermelha: rgb(185 28 28);
+    --verde-claro: rgb(22 163 74);
 }
 
 .btns-connect, .options-schedule {
@@ -24,11 +29,11 @@ main {
     gap: 40px;
     justify-content: center;
     align-items: center;
-    height: 75vh;
+    height: 100vh;
 }
 
 .btns-connect button, .option-btn {
-    background-color: var(--cor-cinza-claro);
+    background-color: var(--cinza-claro);
     padding: 13px 15px;
     border-radius: 5px;
     border: none;
@@ -38,6 +43,7 @@ main {
     transition: 0.3s ease;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     width: 400px;
+    font-weight: 700;
 }
 
 .filterBlur {
@@ -45,11 +51,17 @@ main {
 }
 
 .icon-exit {
-    color: red;
+    color: var(--cor-vermelha);
     position: absolute;
     left: 35px;
     top: 40px;
     font-size: 20px;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: 0.3s ease;
+}
+
+h1 {
+    font-family: 'Tektur', system-ui;
+    color: var(--cinza-claro);
+    letter-spacing: 2px;
 }

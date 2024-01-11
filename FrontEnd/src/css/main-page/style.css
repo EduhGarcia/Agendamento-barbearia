@@ -1,45 +1,12 @@
-.line {
-    width: 5px;
+
+.img-scissors {
     position: absolute;
-    background-color: var(--cor-cinza-claro);
-    z-index: -1;
+    left: 8%;
+    bottom: 26%;
 }
 
-.first {
-    top: 0;
-    left: 6%;
-    height: 90vh;
-}
-
-.second {
-    top: 0;
-    left: 15%;
-    height: 60vh;
-}
-
-.third {
-    top: 0;
-    right: 15%;
-    height: 60vh;
-}
-
-.fourth {
-    top: 0;
-    right: 6%;
-    height: 90vh;
-}
-
-.icon-scissors-comb {
+.img-chair {
     position: absolute;
-    font-size: 90px;
-    color: var(--cor-cinza-claro);
-    left: 13%;
-    bottom: 22%;
-}
-
-.icon-barbershop {
-    width: 130px;
-    position: absolute;
-    right: 12%;
+    right: 8%;
     bottom: 20%;
 }

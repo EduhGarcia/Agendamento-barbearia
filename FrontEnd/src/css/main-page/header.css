@@ -2,9 +2,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    background-color: var(--cor-cinza-claro);
+    padding: 20px 80px;
     z-index: 1;
+    background: -moz-linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%); background: -webkit-linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%); background: linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%);
+    filter: brightness(80%);
+    position: absolute;
+    width: 100%;
+    top: 0;
 }
 
 .header .logo-barbearia {

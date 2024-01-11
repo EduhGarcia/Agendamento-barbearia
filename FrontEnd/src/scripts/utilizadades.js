@@ -37,14 +37,14 @@ export function nextPage() {
                 email,
                 password,
                 name
-            }).then((response) => {
+            }).then(response => {
                 response.data.message === 'User create' ? userAllowed() : emailUsing.removeClass('display-disable')
             })
         } else {
             server.post('/login', {
                 email,
                 password
-            }).then((response) => {
+            }).then(response => {
                 const messageLabel = response.data.message
                 let label = messageLabel === 'Senha incorreta' ? labelError[1] : labelError[0]
 
@@ -69,8 +69,8 @@ function changeTextLabel(message, label) {
 }
 
 function userAllowed() {
-    clearValueInput()
     window.location.href = './usuario.html'
+    clearValueInput()
     return next = 0
 }
 
@@ -84,7 +84,6 @@ export function openScreenConnect(functionButton) {
 export function hideOrShowPassword() {
     const iconEye = $('#icon-eye')
 
-    console.log(iconEye);
     iconEye.on('click', (item) => {
         
         if ($('.fa-eye').length !== 0) {

@@ -1,5 +1,6 @@
 .header .username {
     text-transform: capitalize;
+    color: rgb(8 145 178);
 }
 
 .container-message {
@@ -7,12 +8,12 @@
     top: 60px;
     right: 60px;
     padding: 20px;
-    background-color: green;
+    background-color: rgb(4 120 87);
     font-size: 25px;
     color: var(--cor-branca);
     border-radius: 5px;
     transition: 0.8s ease-in-out;
-    z-index: -2;
+    z-index: 0;
 }
 
 .success-message {
@@ -21,17 +22,17 @@
 
 .options-schedule .option-btn:hover {
     filter: brightness(75%);
-    color: green;
+    color: var(--verde-claro);
 }
 
 .options-schedule .option-exit:hover {
-    color: red;
+    color: var(--cor-vermelha);
 }
 
 .query-scheduling {
     width: 28%;
     height: 50%;
-    background-color: var(--cor-cinza-claro);
+    background: -moz-linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%); background: -webkit-linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%); background: linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -48,6 +49,9 @@
     font-size: 25px;
     text-align: center;
     width: 80%;
+    font-weight: 400;
+    color: var(--cor-branca);
+    margin-top: 10px;
 }
 
 .query-scheduling .container-historic {
@@ -55,14 +59,29 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    max-height: 330px;
+    max-height: 300px;
     overflow: auto;
+    color: var(--cor-branca);
+    padding-right: 10px;
+}
+
+.container-historic::-webkit-scrollbar {
+    width: 10px;
+}
+
+.container-historic::-webkit-scrollbar-thumb {
+    border-radius: 45px;
+    background: var(--verde-claro);
+}
+
+.container-historic::-webkit-scrollbar-track {
+    background: transparent;
 }
 
 .query-scheduling .item-historic {
     list-style: none;
     font-size: 19px;
-    border: solid 2px var(--cor-cinza-escuro);
+    border: solid 2px var(--cor-branca);
     padding: 7px;
     padding-right: 31px;
     border-radius: 5px;
@@ -80,12 +99,12 @@
 
 .query-scheduling .item-historic button:nth-child(1) {
     background-color: gray;
-    color: var(--cor-cinza-claro);
+    color: var(--cinza-claro);
 }
 
 .query-scheduling .item-historic button:nth-child(2) {
-    background-color: darkred;
-    color: var(--cor-cinza-claro);
+    background-color: var(--cor-vermelha);
+    color: var(--cinza-claro);
 }
 
 .query-scheduling .item-historic p {
@@ -103,12 +122,13 @@
     display: flex;
 }
 
-span {
+.query-scheduling .item-historic span {
     font-weight: bold;
+    color: var(--verde-claro);
 }
 
 .fa-trash {
-    color: red;
+    color: var(--cor-vermelha);
     position: absolute;
     right: 9px;
     top: 50%;
@@ -117,10 +137,10 @@ span {
 }
 
 .not-found {
-    color: red;
+    color: var(--cor-vermelha);
     font-size: 20px;
     text-align: center;
-    background-color: lightcoral;
+    background-color: rgb(248 113 113);
     padding: 15px;
     border-radius: 5px;
     margin: 70px 40px 0 40px;

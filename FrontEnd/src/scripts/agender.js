@@ -87,7 +87,7 @@ function printTimesAvailables(dateValue) {
     containerTimes.html('')
     let timesUsed = []
 
-    server.get('/horarios/' + dateValue).then((response) => {
+    server.get('/horarios/' + dateValue).then(response => {
         response.data.map((item) => {
             timesUsed.push(item.horario)
         })
