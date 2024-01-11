@@ -6,7 +6,7 @@ export const server = axios.create({
 
 export const containerMessage = $('.container-message')
 
-server.get('/message').then((response) => {
+server.get('/message').then(response => {
     $('.username').text(response.data.name)
     if (response.data.alertAnnimation !== '') {
         containerMessage.text(response.data.alertAnnimation)
@@ -25,7 +25,7 @@ $('.option-cancel-schedule').on('click', () => {
 
     $('.title-screen-float').text('Agendamentos disponíveis')
 
-    server.get('/historico').then((response) => {
+    server.get('/historico').then(response => {
         let schedulingsAvailables = false
         $('.icon-exit').on('click', setScreenFloat)
 
@@ -69,6 +69,7 @@ $('.option-historic').on('click', historic)
 
 function trashScheduling(i, HistoricContent) {
     $('.container-historic').html(HistoricContent)
+    containerMessage.css("background-color", "darkred")
 
     const itemSelected = $(`.container-historic #${i.target.id}`).parent().parent()
     const itemSelectedContent = itemSelected.html()
@@ -93,19 +94,16 @@ function trashScheduling(i, HistoricContent) {
 
     $('.cancel-scheduling').on('click', () => {
         setScreenFloat()
-        server.delete('/cancelar-agendamento/' + i.target.id)
 
-        containerMessage.css("background-color", "darkred")
-
-        server.get('/message').then((response) => {
-            containerMessage.text(response.data.alertAnnimation)
+        server.delete('/cancelar-agendamento/' + i.target.id).then(response => {
+            containerMessage.text(response.data.messsageAlert)
             containerMessage.addClass('success-message')
 
             setTimeout(() => {
                 containerMessage.removeClass('success-message')
                 
             }, 2200)
-        })
+        })      
     })
 }
 
@@ -126,7 +124,6 @@ function certifyDate(data) {
             
             return false
         }
-
         return true
     } 
     
@@ -136,7 +133,7 @@ function certifyDate(data) {
 function historic() {
     setScreenFloat('habilitar')
 
-    server.get('/historico').then((response) => {
+    server.get('/historico').then(response => {
         if (response.data.length !== undefined) {
             response.data.map((item) => {
                 const data = convertData(item.data_agendada)
