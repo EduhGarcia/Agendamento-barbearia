@@ -1,12 +1,15 @@
 const express = require("express")
 const cors = require("cors")
 const { PrismaClient } = require("@prisma/client")
+const SwaggerUi = require("swagger-ui-express")
+const swaggerDocument = require("./gerenciamento-barbearia.json")
 
 const app = express()
 const prisma = new PrismaClient()
 
 app.use(express.json())
 app.use(cors())
+app.use("/docs", SwaggerUi.serve, SwaggerUi.setup(swaggerDocument))
 
 let userInfo = {
     email: null,
@@ -20,7 +23,7 @@ app.post('/login', async function (req, res) {
         const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 
         if (!indentifyUser) {
-            return res.send({ message: 'Usuário não encontrado' }).status(401)
+            return res.send({ message: 'Usuário não encontrado' }).status(400)
         } else if (indentifyUser.senha !== password) {
             return res.send({ message: 'Senha incorreta' }).status(401)
         };
@@ -28,7 +31,7 @@ app.post('/login', async function (req, res) {
         userInfo.email = email
         userInfo.name = indentifyUser.nome
 
-        res.status(200).send({ message: 'User found' })
+        res.status(200).send({ message: 'Usuário encontrado' })
     } catch (err) {
         return res.status(501).send({ message: 'Falha ao encontrar usuário' })
     }
@@ -40,7 +43,7 @@ app.post('/cadastro', async function (req, res) {
         const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 
         if (indentifyUser) {
-            return res.send({ message: 'possui cadastro' }).status(400)
+            return res.send({ message: 'Possui cadastro' }).status(400)
         }
 
         userInfo.email = email
@@ -56,7 +59,7 @@ app.post('/cadastro', async function (req, res) {
 
         userInfo.alertAnnimation = "Cadastrado com sucesso!"
 
-        res.status(201).send({ message: 'User create' })
+        res.status(201).send({ message: 'Usuário criado' })
     } catch (err) {
         return res.status(501).send({ message: 'Falha ao cadastrar usuário' })
     }
