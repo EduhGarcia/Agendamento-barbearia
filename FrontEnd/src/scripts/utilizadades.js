@@ -38,7 +38,8 @@ export function nextPage() {
                 password,
                 name
             }).then(response => {
-                response.data.message === 'User create' ? userAllowed() : emailUsing.removeClass('display-disable')
+                response.data.message === 'Usuário criado' ? userAllowed() : 
+                emailUsing.removeClass('display-disable')
             })
         } else {
             server.post('/login', {
@@ -48,7 +49,8 @@ export function nextPage() {
                 const messageLabel = response.data.message
                 let label = messageLabel === 'Senha incorreta' ? labelError[1] : labelError[0]
 
-                messageLabel === 'User found' ? userAllowed() : changeTextLabel(messageLabel, label)
+                messageLabel === 'Usuário encontrado' ? userAllowed() : 
+                changeTextLabel(messageLabel, label)
             })
         }
     }
