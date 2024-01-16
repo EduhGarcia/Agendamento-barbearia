@@ -1,1 +1,333 @@
-{}
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API da barbearia",
+        "description": "API para gerenciamento da barbearia",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/login": {
+            "post": {
+                "tags": [
+                    "Usuário"
+                ],
+                "summary": "Logar o usuário",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginUser"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuário encontrado"
+                    },
+                    "501": {
+                        "description": "Falha ao encontrar usuário"
+                    }
+                }
+            }
+        },
+        "/cadastro": {
+            "post": {
+                "tags": [
+                    "Usuário"
+                ],
+                "summary": "Cadastrar novo usuário",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SigninUser"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuário criado"
+                    },
+                    "501": {
+                        "description": "Falha ao cadastrar usuário"
+                    }
+                }
+            }
+        },
+        "/agendamento": {
+            "get": {
+                "tags": [
+                    "Agendamento"
+                ],
+                "summary": "Obter o histórico de agendamento do usuário",
+                "responses": {
+                    "200": {
+                        "description": "Retorna todos os agendamentos do usuário",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "$ref": "#/components/schemas/Historic"
+                                }
+                            }
+                        }
+                    },
+                    "501": {
+                        "description": "Não foi possível consultar o histórico"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Agendamento"
+                ],
+                "summary": "Cria o agendamento",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateScheduling"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Agendamento feito com sucesso"
+                    },
+                    "501": {
+                        "description": "Não foi possível realizar o agendamento"
+                    }
+                }
+            }
+        },
+        "/agendamento/{id}": {
+            "delete": {
+                "tags": [
+                    "Agendamento"
+                ],
+                "summary": "Deleta o agendamento",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID do agendamento a ser deletado",
+                    "schema": {
+                        "type": "integer"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Agendamento Cancelado"
+                    },
+                    "501": {
+                        "description": "Falha ao cancelar o agendamento"
+                    }
+                }
+            }
+        },
+        "/horarios/{date}": {
+            "get": {
+                "tags": [
+                    "Agendamento"
+                ],
+                "summary": "Busca todos os horários agendados do dia",
+                "parameters": [{
+                    "name": "date",
+                    "in": "path",
+                    "required": true,
+                    "description": "Data selecionada pelo usuário",
+                    "schema": {
+                        "type": "string",
+                        "format": "date"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Retorna todos os horários agendados do dia",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "$ref": "#/components/schemas/Times"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Data inválida"
+                    },
+                    "501": {
+                        "description": "Não foi possível consultar horários"
+                    }
+                }
+            }
+        },
+        "/message": {
+            "get": {
+                "tags": [
+                    "Mensagem"
+                ],
+                "summary": "Mensagem de animação das ações de sucesso do usuário",
+                "responses": {
+                    "200": {
+                        "description": "Retorna algumas informações do usuário e sua ação de sucesso atual",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "$ref": "#/components/schemas/Message"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "LoginUser": {
+                "type": "object",
+                "required": [
+                    "email",
+                    "password"
+                ],
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "Email do usuário do filme"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Senha do usuário"
+                    }
+                }
+            },
+            "SigninUser": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "email",
+                    "senha"
+                ],
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "Email do usuário do filme"
+                    },
+                    "senha": {
+                        "type": "string",
+                        "description": "Senha do usuário"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Nome do usuário"
+                    }
+                }
+            },
+            "CreateScheduling": {
+                "type": "object",
+                "required": [
+                    "data_agendada",
+                    "horario",
+                    "servico",
+                    "tipo_servico"
+                ],
+                "properties": {
+                    "data_agendada": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "Data do agendamento"
+                    },
+                    "horario": {
+                        "type": "string",
+                        "description": "horário do agendamento"
+                    },
+                    "servico": {
+                        "type": "string",
+                        "description": "Serviço que será feito"
+                    },
+                    "tipo_servico": {
+                        "type": "string",
+                        "description": "Tipo de serviço que será feito"
+                    }
+                }
+            },
+            "Historic": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "ID do agendamento"
+                    },
+                    "data_agendada": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "Data do agendamento"
+                    },
+                    "horario": {
+                        "type": "string",
+                        "description": "horário do agendamento"
+                    },
+                    "servico": {
+                        "type": "string",
+                        "description": "Serviço que será feito"
+                    },
+                    "tipo_servico": {
+                        "type": "string",
+                        "description": "Tipo de serviço que será feito"
+                    }
+                }
+            },
+            "Times": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "ID do agendamento"
+                    },
+                    "data_agendada": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "Data do agendamento"
+                    },
+                    "horario": {
+                        "type": "string",
+                        "description": "horário do agendamento"
+                    },
+                    "servico": {
+                        "type": "string",
+                        "description": "Serviço que será feito"
+                    },
+                    "tipo_servico": {
+                        "type": "string",
+                        "description": "Tipo de serviço que será feito"
+                    }
+                }
+            },
+            "Message": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "Retorna o email do usuário"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Retorna o nome do usuário"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Retorna a ação de sucesso atual do usuário"
+                    }
+                }
+            }
+        }
+    }
+}
