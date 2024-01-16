@@ -88,9 +88,11 @@ function printTimesAvailables(dateValue) {
     let timesUsed = []
 
     server.get('/horarios/' + dateValue).then(response => {
-        response.data.map((item) => {
-            timesUsed.push(item.horario)
-        })
+        if (response.data.message === undefined) {
+            response.data.map((item) => {
+                timesUsed.push(item.horario)
+            })
+        }
 
         while (timeActually < 19.00) {
             let stringTimeActually = ''
@@ -138,7 +140,7 @@ function printTimesAvailables(dateValue) {
         tranformTime = timeActually + ""
     })
 
-    
+
 }
 
 function validateData() {
