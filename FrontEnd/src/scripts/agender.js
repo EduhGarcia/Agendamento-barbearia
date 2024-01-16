@@ -1,7 +1,7 @@
 import { pageHref } from "./user-page.js"
 
 const server = axios.create({
-    baseURL: 'http://localhost:3001'
+    baseURL: 'https://barbearia-agendamentos.onrender.com/'
 })
 
 const DataCorteDeCabelo = $('.services')

@@ -4,7 +4,7 @@ const main = $('main')
 let next = 0
 
 const server = axios.create({
-    baseURL: 'http://localhost:3001'
+    baseURL: 'https://barbearia-agendamentos.onrender.com/'
 })
 
 export function nextPage() {
