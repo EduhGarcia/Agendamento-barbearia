@@ -25,7 +25,7 @@ $('.option-cancel-schedule').on('click', () => {
 
     $('.title-screen-float').text('Agendamentos disponíveis')
 
-    server.get('/historico').then(response => {
+    server.get('/agendamento').then(response => {
         let schedulingsAvailables = false
         $('.icon-exit').on('click', setScreenFloat)
 
@@ -95,13 +95,12 @@ function trashScheduling(i, HistoricContent) {
     $('.cancel-scheduling').on('click', () => {
         setScreenFloat()
 
-        server.delete('/cancelar-agendamento/' + i.target.id).then(response => {
-            containerMessage.text(response.data.messsageAlert)
+        server.delete('/agendamento/' + i.target.id).then(response => {
+            containerMessage.text(response.data.message)
             containerMessage.addClass('success-message')
 
             setTimeout(() => {
                 containerMessage.removeClass('success-message')
-                
             }, 2200)
         })      
     })
@@ -133,7 +132,7 @@ function certifyDate(data) {
 function historic() {
     setScreenFloat('habilitar')
 
-    server.get('/historico').then(response => {
+    server.get('/agendamento').then(response => {
         if (response.data.length !== undefined) {
             response.data.map((item) => {
                 const data = convertData(item.data_agendada)
