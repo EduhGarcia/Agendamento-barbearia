@@ -226,5 +226,5 @@ function printDate() {
     }
 
     $('.confirm-date').text(dateFormatString)
-    infosSchediling.date = date
+    infosSchediling.date = dateValue
 }

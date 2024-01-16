@@ -73,7 +73,7 @@ app.post('/agendamento', async function (req, res) {
 
         await prisma.agendamento.create({
             data: {
-                data_agendada: date,
+                data_agendada: new Date(date),
                 horario: time,
                 servico: service,
                 tipo_servico: typeService,
