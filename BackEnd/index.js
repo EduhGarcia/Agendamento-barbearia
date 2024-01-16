@@ -9,6 +9,7 @@ const prisma = new PrismaClient()
 
 app.use(express.json())
 app.use(cors())
+
 app.use("/docs", SwaggerUi.serve, SwaggerUi.setup(swaggerDocument))
 
 let userInfo = {
@@ -23,9 +24,9 @@ app.post('/login', async function (req, res) {
         const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 
         if (!indentifyUser) {
-            return res.send({ message: 'Usuário não encontrado' }).status(400)
+            return res.send({ message: 'Usuário não encontrado' })
         } else if (indentifyUser.senha !== password) {
-            return res.send({ message: 'Senha incorreta' }).status(401)
+            return res.send({ message: 'Senha incorreta' })
         };
 
         userInfo.email = email
@@ -43,7 +44,7 @@ app.post('/cadastro', async function (req, res) {
         const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 
         if (indentifyUser) {
-            return res.send({ message: 'Possui cadastro' }).status(400)
+            return res.send({ message: 'Possui cadastro' })
         }
 
         userInfo.email = email
@@ -80,9 +81,9 @@ app.post('/agendamento', async function (req, res) {
             }
         })
 
-        userInfo.alertAnnimation = "Agendamento Realizado!"
+        userInfo.alertAnnimation = 'Agendamento Realizado!'
 
-        res.status(201)
+        res.status(201).send({message: 'Agendamento feito com sucesso'})
     } catch (err) {
         return res.status(501).send({ message: 'Não foi possível realizar o agendamento' })
     }
@@ -91,7 +92,8 @@ app.post('/agendamento', async function (req, res) {
 app.get('/horarios/:date', async function (req, res) {
     try {
         const dateInput = new Date(req.params.date);
-        if (dateInput == 'Invalid Date') return
+
+        if (dateInput == 'Invalid Date') return res.status(401).send({message: 'Data inválida'})
 
         const searchTimes = await prisma.agendamento.findMany({
             where: {
@@ -101,24 +103,28 @@ app.get('/horarios/:date', async function (req, res) {
             }
         })
 
+        if (searchTimes.length === 0) {
+            return res.send({message: 'Todos horários disponíveis'})
+        }
+
         return res.status(200).send(searchTimes)
     } catch (err) {
         return res.status(501).send({ message: 'Não foi possível consultar horários' })
     }
 })
 
-app.delete('/cancelar-agendamento/:id', async function (req, res) {
+app.delete('/agendamento/:id', async function (req, res) {
     try {
         const id = Number(req.params.id);
         await prisma.agendamento.delete({ where: { id } })
 
-        return res.status(200).send({ messsageAlert: 'Agendamento Cancelado'})
+        return res.status(200).send({ message: 'Agendamento Cancelado'})
     } catch (err) {
         return res.status(501).send({ message: 'Falha ao cancelar o agendamento' })
     }
 })
 
-app.get('/historico', async function (req, res) {
+app.get('/agendamento', async function (req, res) {
     try {
         const historicUser = await prisma.agendamento.findMany({
             where: {
