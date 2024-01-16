@@ -98,7 +98,7 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Agendamento feito com sucesso"
+                        "description": "Agendamento feito com sucesso ( Precisa logar na conta ou se cadastrar )"
                     },
                     "501": {
                         "description": "Não foi possível realizar o agendamento"
@@ -214,14 +214,14 @@
                 "required": [
                     "name",
                     "email",
-                    "senha"
+                    "password"
                 ],
                 "properties": {
                     "email": {
                         "type": "string",
                         "description": "Email do usuário do filme"
                     },
-                    "senha": {
+                    "password": {
                         "type": "string",
                         "description": "Senha do usuário"
                     },
@@ -234,26 +234,26 @@
             "CreateScheduling": {
                 "type": "object",
                 "required": [
-                    "data_agendada",
-                    "horario",
-                    "servico",
-                    "tipo_servico"
+                    "date",
+                    "time",
+                    "service",
+                    "typeService"
                 ],
                 "properties": {
-                    "data_agendada": {
+                    "date": {
                         "type": "string",
                         "format": "date",
                         "description": "Data do agendamento"
                     },
-                    "horario": {
+                    "time": {
                         "type": "string",
                         "description": "horário do agendamento"
                     },
-                    "servico": {
+                    "service": {
                         "type": "string",
                         "description": "Serviço que será feito"
                     },
-                    "tipo_servico": {
+                    "typeService": {
                         "type": "string",
                         "description": "Tipo de serviço que será feito"
                     }
