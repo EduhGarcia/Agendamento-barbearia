@@ -12,7 +12,7 @@ app.use(express.json())
 app.use((req, res, next) => {
     res.setHeader(
       "Access-Control-Allow-Origin",
-      "https://your-frontend.com"
+      "https://barbearia-agendamentos-7z52.onrender.com/"
     );
     res.setHeader(
       "Access-Control-Allow-Methods",
