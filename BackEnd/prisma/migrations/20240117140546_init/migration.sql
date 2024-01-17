@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "agendamentos" (
+CREATE TABLE "agendamento" (
     "id" SERIAL NOT NULL,
     "data_agendada" DATE,
     "email" VARCHAR(80),
@@ -11,7 +11,7 @@ CREATE TABLE "agendamentos" (
 );
 
 -- CreateTable
-CREATE TABLE "usuarios" (
+CREATE TABLE "usuario" (
     "id" SERIAL NOT NULL,
     "nome" VARCHAR(80),
     "email" VARCHAR(80),
