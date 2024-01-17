@@ -38,7 +38,7 @@ export function nextPage() {
                 password,
                 name
             }).then(response => {
-                console.log(response);
+                console.log(response, "teste");
                 response.data.message === 'Usuário criado' ? userAllowed() : 
                 emailUsing.removeClass('display-disable')
             })
