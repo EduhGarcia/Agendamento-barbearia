@@ -38,6 +38,7 @@ export function nextPage() {
                 password,
                 name
             }).then(response => {
+                console.log(response);
                 response.data.message === 'Usuário criado' ? userAllowed() : 
                 emailUsing.removeClass('display-disable')
             })
@@ -71,7 +72,7 @@ function changeTextLabel(message, label) {
 }
 
 function userAllowed() {
-    window.location.href = './usuario.html'
+    window.location.href += './usuario.html'
     clearValueInput()
     return next = 0
 }
