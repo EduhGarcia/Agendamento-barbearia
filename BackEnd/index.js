@@ -19,7 +19,7 @@ let userInfo = {
 };
 
 app.post('/login', async function (req, res) {
-    try {
+    
         const { email, password } = req.body
         const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 
@@ -33,9 +33,6 @@ app.post('/login', async function (req, res) {
         userInfo.name = indentifyUser.nome
 
         res.status(200).send({ message: 'Usuário encontrado' })
-    } catch (err) {
-        return res.status(501).send({ message: 'Falha ao encontrar usuário' })
-    }
 })
 
 app.post('/cadastro', async function (req, res) {
