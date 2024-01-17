@@ -93,7 +93,7 @@ app.get('/horarios/:date', async function (req, res) {
     try {
         const dateInput = new Date(req.params.date);
 
-        if (dateInput == 'Invalid Date') return res.status(401).send({message: 'Data inválida'})
+        if (dateInput == 'Invalid Date') return res.send({message: 'Data inválida'}).status(401)
 
         const searchTimes = await prisma.agendamento.findMany({
             where: {
