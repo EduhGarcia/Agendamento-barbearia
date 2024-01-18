@@ -8,10 +8,8 @@ const app = express()
 const prisma = new PrismaClient()
 
 app.use((req, res, next) => {
-    console.log("fafsf");
-
     res.header(
-        "Access-Control-Allow-Origin", "*"
+        "Access-Control-Allow-Origin", "https://barbearia-agendamentos-7z52.onrender.com"
     );
     res.header(
         "Access-Control-Allow-Methods",
