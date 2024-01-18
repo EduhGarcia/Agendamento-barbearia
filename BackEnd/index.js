@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 
     
     app.use(cors({
-        origin: "*"
+        origin: "https://barbearia-agendamentos-7z52.onrender.com"
     }))
 
     next();
