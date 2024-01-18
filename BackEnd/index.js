@@ -7,7 +7,7 @@ const swaggerDocument = require("./gerenciamento-barbearia.json")
 const app = express()
 const prisma = new PrismaClient()
 
-app.use(cors())
+app.use(cors("https://barbearia-agendamentos-7z52.onrender.com"))
 app.use(express.json())
 
 app.use("/docs", SwaggerUi.serve, SwaggerUi.setup(swaggerDocument))
