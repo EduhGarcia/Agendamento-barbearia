@@ -7,29 +7,7 @@ const swaggerDocument = require("./gerenciamento-barbearia.json")
 const app = express()
 const prisma = new PrismaClient()
 
-app.use((req, res, next) => {
-    res.header(
-        "Access-Control-Allow-Origin", "https://barbearia-agendamentos-7z52.onrender.com"
-    );
-    res.header(
-        "Vary",
-        "Origin"
-    );
-    res.header(
-        "Access-Control-Allow-Methods",
-        "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE"
-    );
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Header"
-    )
-
-    
-    app.use(cors())
-
-    next();
-});
-
+app.use(cors())
 app.use(express.json())
 
 app.use("/docs", SwaggerUi.serve, SwaggerUi.setup(swaggerDocument))
@@ -45,7 +23,7 @@ app.post('/login', async function (req, res) {
     const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 
     if (!indentifyUser) {
-        return res.status(404).send({ message: 'Usuário não encontrado' })
+        return res.send({ message: 'Usuário não encontrado' })
     } else if (indentifyUser.senha !== password) {
         return res.send({ message: 'Senha incorreta' })
     };
