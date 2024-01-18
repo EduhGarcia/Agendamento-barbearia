@@ -39,7 +39,17 @@ let userInfo = {
 };
 
 app.post('/login', async function (req, res) {
-
+    res.header(
+        "Access-Control-Allow-Origin", "https://barbearia-agendamentos-7z52.onrender.com"
+    );
+    res.header(
+        "Access-Control-Allow-Methods",
+        "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE"
+    );
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Header"
+    )
     const { email, password } = req.body
     const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 

@@ -6,7 +6,7 @@ let next = 0
 const server = axios.create({
     baseURL: 'https://barbearia-agendamentos.onrender.com'
 })
-
+console.log(server);
 export function nextPage() {
     const inputs = $('*.input-login')
     const labelError = $('*.input-error')
