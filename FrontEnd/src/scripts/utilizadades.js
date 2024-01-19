@@ -4,9 +4,9 @@ const main = $('main')
 let next = 0
 
 const server = axios.create({
-    baseURL: 'https://barbearia-agendamentos.onrender.com'
+    baseURL: 'http://localhost:3000'
 })
-console.log(server);
+
 export function nextPage() {
     const inputs = $('*.input-login')
     const labelError = $('*.input-error')
@@ -38,7 +38,6 @@ export function nextPage() {
                 password,
                 name
             }).then(response => {
-                console.log(response, "teste");
                 response.data.message === 'Usuário criado' ? userAllowed() : 
                 emailUsing.removeClass('display-disable')
             })
