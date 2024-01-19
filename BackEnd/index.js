@@ -10,9 +10,9 @@ const PORT = process.env.PORT || 3000
 app.use(express.json())
 
 app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'https://barbearia-agendamentos-7z52.onrender.com'); // Replace with your domain
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.header('Access-Control-Allow-Origin', 'https://barbearia-agendamentos-7z52.onrender.com');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
     app.use(cors({origin: "https://barbearia-agendamentos-7z52.onrender.com"}))
     next();
   });
@@ -26,6 +26,13 @@ let userInfo = {
 };
 
 app.post('/login', async function (req, res) {
+    app.use(function(req, res, next) {
+        res.header('Access-Control-Allow-Origin', 'https://barbearia-agendamentos-7z52.onrender.com');
+        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+        app.use(cors({origin: "https://barbearia-agendamentos-7z52.onrender.com"}))
+        next();
+      });
     const { email, password } = req.body
     const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 
