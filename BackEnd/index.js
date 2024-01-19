@@ -6,10 +6,11 @@ const swaggerDocument = require("./gerenciamento-barbearia.json")
 
 const app = express()
 const prisma = new PrismaClient()
+const PORT = process.env.PORT || 3000
 app.use(express.json())
 
 app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://example.com'); // Replace with your domain
+    res.setHeader('Access-Control-Allow-Origin', 'https://barbearia-agendamentos-7z52.onrender.com'); // Replace with your domain
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     app.use(cors({origin: "https://barbearia-agendamentos-7z52.onrender.com"}))
@@ -153,4 +154,4 @@ app.get('/message', function (req, res) {
 
 
 
-app.listen(3001, () => console.log(process.env.PORT))
+app.listen(PORT, () => console.log("Servidor iniciado"))
