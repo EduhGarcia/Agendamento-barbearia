@@ -6,15 +6,13 @@ const swaggerDocument = require("./gerenciamento-barbearia.json")
 
 const app = express()
 const prisma = new PrismaClient()
-
-app.use(cors("https://barbearia-agendamentos-7z52.onrender.com"))
 app.use(express.json())
 
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://example.com'); // Replace with your domain
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    app.use(cors({origin: "https://barbearia-agendamentos-7z52.onrender.com"}))
+    app.use(cors({"https://barbearia-agendamentos-7z52.onrender.com"}))
     next();
   });
 
@@ -153,4 +151,6 @@ app.get('/message', function (req, res) {
     userInfo.alertAnnimation = ''
 })
 
-app.listen(3001, () => console.log('servidor rodando'))
+
+
+app.listen(3001, () => console.log(process.env.PORT))
