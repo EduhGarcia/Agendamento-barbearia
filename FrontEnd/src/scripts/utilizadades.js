@@ -27,6 +27,7 @@ export function nextPage() {
         const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
         if (inputs.length === 3) {
+            console.log(email);
             if (!emailRegex.test(email)) changeTextLabel('Email inválido', labelError[0]);
             
             if (inputs[1].value.length < 6) changeTextLabel('A senha deve ter no minimo 6 digitos', labelError[1])

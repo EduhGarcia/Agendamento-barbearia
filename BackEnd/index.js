@@ -13,7 +13,6 @@ app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', 'https://barbearia-agendamentos-7z52.onrender.com');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
-    app.use(cors({origin: "https://barbearia-agendamentos-7z52.onrender.com"}))
     next();
   });
 
@@ -26,15 +25,11 @@ let userInfo = {
 };
 
 app.post('/login', async function (req, res) {
-    app.use(function(req, res, next) {
-        res.header('Access-Control-Allow-Origin', 'https://barbearia-agendamentos-7z52.onrender.com');
-        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE');
-        res.header('Access-Control-Allow-Headers', 'Content-Type');
-        app.use(cors({origin: "https://barbearia-agendamentos-7z52.onrender.com"}))
-        next();
-      });
     const { email, password } = req.body
     const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
+
+    console.log(indentifyUser);
+    console.log(req.body);
 
     if (!indentifyUser) {
         return res.send({ message: 'Usuário não encontrado' })
@@ -52,6 +47,9 @@ app.post('/cadastro', async function (req, res) {
     try {
         const { name, email, password } = req.body
         const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
+
+        console.log(indentifyUser);
+        console.log(req.body);
 
         if (indentifyUser) {
             return res.send({ message: 'Possui cadastro' })
