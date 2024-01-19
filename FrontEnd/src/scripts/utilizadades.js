@@ -4,7 +4,7 @@ const main = $('main')
 let next = 0
 
 const server = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: '35.160.120.126'
 })
 
 export function nextPage() {
