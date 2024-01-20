@@ -4,7 +4,7 @@ const main = $('main')
 let next = 0
 
 const server = axios.create({
-    baseURL: '11.000.111.00'
+    baseURL: 'https://api.render.com/deploy/srv-cmjfmqn109ks739j59q0?key=eEM_qB_C098'
 })
 
 export function nextPage() {
