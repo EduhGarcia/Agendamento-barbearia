@@ -1,8 +1,7 @@
 import { dateFormat } from "./agender.js"
 
 export const server = axios.create({
-    baseURL: 'https://barbearia-agendamentos.onrender.com',
-    Headers: {'Access-Control-Allow-Headers': '*'}
+    baseURL: 'https://barbearia-agendamentos.onrender.com'
 })
 
 export const containerMessage = $('.container-message')
