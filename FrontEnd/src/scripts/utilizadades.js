@@ -43,10 +43,12 @@ export function nextPage() {
                 emailUsing.removeClass('display-disable')
             })
         } else {
+            console.log(email)
             server.post('/login', {
                 email,
                 password
             }).then(response => {
+                console.log(response)
                 const messageLabel = response.data.message
                 let label = messageLabel === 'Senha incorreta' ? labelError[1] : labelError[0]
 
