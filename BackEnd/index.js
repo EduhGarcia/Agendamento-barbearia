@@ -31,7 +31,7 @@ app.post('/login', async function (req, res) {
     console.log(indentifyUser);
     console.log(req.body);
 
-    res.send({ message: 'Usuário não encontrado' })
+    return res.send({ message: 'Usuário não encontrado' })
 
     if (!indentifyUser) {
         return res.send({ message: 'Usuário não encontrado' })
