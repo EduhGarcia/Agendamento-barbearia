@@ -51,6 +51,8 @@ app.post('/cadastro', async function (req, res) {
         console.log(indentifyUser);
         console.log(req.body);
 
+        return res.send({ message: 'Possui cadastro' })
+
         if (indentifyUser) {
             return res.send({ message: 'Possui cadastro' })
         }
