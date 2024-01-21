@@ -4,7 +4,7 @@ const main = $('main')
 let next = 0
 
 const server = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'https://server-barbearia.onrender.com'
 })
 
 export function nextPage() {
