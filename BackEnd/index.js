@@ -103,7 +103,7 @@ app.post('/agendamento', async function (req, res) {
 })
 
 app.get('/horarios/:date', async function (req, res) {
-    try {
+    
         const dateInput = new Date(req.params.date);
 
         if (dateInput == 'Invalid Date') return res.send({ message: 'Data inválida' }).status(401)
@@ -121,9 +121,7 @@ app.get('/horarios/:date', async function (req, res) {
         }
 
         return res.status(200).send(searchTimes)
-    } catch (err) {
-        return res.status(501).send({ message: 'Não foi possível consultar horários' })
-    }
+    
 })
 
 app.delete('/agendamento/:id', async function (req, res) {
