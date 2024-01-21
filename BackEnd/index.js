@@ -36,8 +36,6 @@ app.post('/login', async function (req, res) {
     console.log(indentifyUser);
     console.log(req.body);
 
-    return res.json({ message: 'Usuário não encontrado' })
-
     if (!indentifyUser) {
         return res.send({ message: 'Usuário não encontrado' })
     } else if (indentifyUser.senha !== password) {
