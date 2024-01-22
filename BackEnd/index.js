@@ -34,9 +34,6 @@ app.post('/login', async function (req, res) {
         const { email, password } = req.body
         const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 
-        console.log(indentifyUser);
-        console.log(req.body);
-
         if (!indentifyUser) {
             return res.send({ message: 'Usuário não encontrado' })
         } else if (indentifyUser.senha !== password) {
@@ -56,9 +53,6 @@ app.post('/cadastro', async function (req, res) {
     try {
         const { name, email, password } = req.body
         const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
-
-        console.log(indentifyUser);
-        console.log(req.body);
 
         if (indentifyUser) {
             return res.send({ message: 'Possui cadastro' })
