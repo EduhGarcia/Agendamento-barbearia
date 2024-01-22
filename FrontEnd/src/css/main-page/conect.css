@@ -114,3 +114,8 @@ input:-webkit-autofill {
     cursor: pointer;
     color: gray;
 }
+
+.container-loading i{
+    width: min-content;
+    height: min-content;
+}

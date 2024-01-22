@@ -230,3 +230,9 @@ span {
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
+
+.available-times .container-times i {
+    width: min-content;
+    height: min-content;
+    font-size: 50px;
+}

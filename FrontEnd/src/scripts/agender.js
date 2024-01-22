@@ -26,12 +26,11 @@ DataCorteDeCabelo.prepend(`
         <label for="input-date">Data do agendamento</label>
         <input id="input-date" type="date" min="${dateFormat}">
     </div>
-    `)
+`)
 
 const inputDate = $('#input-date')
 
 inputDate.val(dateFormat)
-
 printTimesAvailables(inputDate.val())
 
 select.on('change', screenTypeServices)
@@ -87,6 +86,8 @@ function printTimesAvailables(dateValue) {
     containerTimes.html('')
     let timesUsed = []
 
+    containerTimes.append('<i class="fa-solid fa-spinner fa-spin-pulse"></i>')
+
     server.get('/horarios/' + dateValue).then(response => {
         if (response.data.message === undefined) {
             response.data.map((item) => {
@@ -110,7 +111,6 @@ function printTimesAvailables(dateValue) {
                         stringTimeActually += tranformTime[i]
                     }
                 }
-
             } else {
                 timeActually += 0.30
 
@@ -135,12 +135,11 @@ function printTimesAvailables(dateValue) {
         }
 
         identifyTimeSelected()
+        $('.fa-spinner').remove();
 
         timeActually = 5.30
         tranformTime = timeActually + ""
     })
-
-
 }
 
 function validateData() {

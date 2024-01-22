@@ -113,7 +113,7 @@ export function pageHref(location) {
 function certifyDate(data) {
     const dateFormatBR = convertData(dateFormat)
 
-    if (dateFormatBR.slice(6, 10) < data.slice(6, 10) ) {
+    if (dateFormatBR.slice(6, 10) < data.slice(6, 10)) {
         return true
     } else if (dateFormatBR.slice(6, 10) > data.slice(6, 10)) {
         return false
@@ -124,7 +124,7 @@ function certifyDate(data) {
             return false
         }
         return true
-    } 
+    }
     
     return false
 }

@@ -30,22 +30,26 @@ let userInfo = {
 };
 
 app.post('/login', async function (req, res) {
-    const { email, password } = req.body
-    const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
+    try {
+        const { email, password } = req.body
+        const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 
-    console.log(indentifyUser);
-    console.log(req.body);
+        console.log(indentifyUser);
+        console.log(req.body);
 
-    if (!indentifyUser) {
-        return res.send({ message: 'Usuário não encontrado' })
-    } else if (indentifyUser.senha !== password) {
-        return res.send({ message: 'Senha incorreta' })
-    };
+        if (!indentifyUser) {
+            return res.send({ message: 'Usuário não encontrado' })
+        } else if (indentifyUser.senha !== password) {
+            return res.send({ message: 'Senha incorreta' })
+        };
 
-    userInfo.email = email
-    userInfo.name = indentifyUser.nome
+        userInfo.email = email
+        userInfo.name = indentifyUser.nome
 
-    res.status(200).send({ message: 'Usuário encontrado' })
+        res.status(200).send({ message: 'Usuário encontrado' })
+    } catch {
+        return res.status(501).send({ message: 'Falha ao encontrar usuário' })
+    }
 })
 
 app.post('/cadastro', async function (req, res) {
@@ -103,7 +107,7 @@ app.post('/agendamento', async function (req, res) {
 })
 
 app.get('/horarios/:date', async function (req, res) {
-    
+    try {
         const dateInput = new Date(req.params.date);
 
         if (dateInput == 'Invalid Date') return res.send({ message: 'Data inválida' }).status(401)
@@ -121,7 +125,9 @@ app.get('/horarios/:date', async function (req, res) {
         }
 
         return res.status(200).send(searchTimes)
-    
+    } catch {
+        return res.status(501).send({ message: 'Não foi possível consultar horários' })
+    }
 })
 
 app.delete('/agendamento/:id', async function (req, res) {

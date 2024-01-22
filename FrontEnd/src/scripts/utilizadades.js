@@ -1,11 +1,11 @@
+const server = axios.create({
+    baseURL: 'https://server-barbearia.onrender.com'
+})
+
 export const connecting = $('.connecting')
 const main = $('main')
 
 let next = 0
-
-const server = axios.create({
-    baseURL: 'https://server-barbearia.onrender.com'
-})
 
 export function nextPage() {
     const inputs = $('*.input-login')
@@ -24,15 +24,20 @@ export function nextPage() {
         const email = inputs[0].value
         const password = inputs[1].value
         const name = inputs[2] !== undefined ? inputs[2].value : ''
-        const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+        const emailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
         if (inputs.length === 3) {
-            console.log(email);
-            if (!emailRegex.test(email)) changeTextLabel('Email inválido', labelError[0]);
+            if (!emailValidation.test(email)) changeTextLabel('Email inválido', labelError[0]);
             
             if (inputs[1].value.length < 6) changeTextLabel('A senha deve ter no minimo 6 digitos', labelError[1])
             
             if ($('.info-user .info-input *.display-disable').length !== 3) return;
+
+            const btnSignin = $('.btn-signin')
+            const widthBtnSignin = btnSignin.width();
+            
+            btnSignin.html('<i class="fa-solid fa-spinner fa-spin-pulse"></i>')
+            btnSignin.width(widthBtnSignin + 'px')
             
             server.post('/cadastro', {
                 email,
@@ -41,19 +46,27 @@ export function nextPage() {
             }).then(response => {
                 response.data.message === 'Usuário criado' ? userAllowed() : 
                 emailUsing.removeClass('display-disable')
+
+                $('.btn-signin').html('Cadastrar')
             })
         } else {
-            console.log(email)
+            const btnLogin = $('.btn-login')
+            const widthBtnLogin = btnLogin.width();
+
+            btnLogin.html('<i class="fa-solid fa-spinner fa-spin-pulse"></i>')
+            btnLogin.width(widthBtnLogin + 'px')
+
             server.post('/login', {
                 email,
                 password
             }).then(response => {
-                console.log(response)
                 const messageLabel = response.data.message
                 let label = messageLabel === 'Senha incorreta' ? labelError[1] : labelError[0]
 
                 messageLabel === 'Usuário encontrado' ? userAllowed() : 
                 changeTextLabel(messageLabel, label)
+
+                $('.btn-login').html('Entrar')
             })
         }
     }
