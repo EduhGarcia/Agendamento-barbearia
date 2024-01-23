@@ -1,4 +1,4 @@
-# Projeto Agendamento Barbearia <img src="./FrontEnd/assets/img/logo-barbearia.png" width="40px" style="position: absolute; top: 6px; margin-left: 10px">
+# Projeto Agendamento Barbearia <img src="./FrontEnd/assets/img/logo-barbearia.png" width="40px" style="position: absolute; margin-top: 6px; margin-left: 10px">
 
 Esse é um projeto de um site para agendamentos de serviços de uma barbearia, um site que possui diversas funcionalidades para o usuário utilizar. Foi desenvolvido e idealizado por mim
 
