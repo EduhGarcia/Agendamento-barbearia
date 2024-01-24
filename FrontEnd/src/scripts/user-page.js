@@ -159,10 +159,10 @@ function historic() {
 
 function setScreenFloat(action) {
     if (action === 'habilitar') {
-        $('.options-schedule').addClass('filterBlur')
+        $('.options-user').addClass('filterBlur')
         $('.query-scheduling').addClass('display-enable')
     } else {
-        $('.options-schedule').removeClass('filterBlur')
+        $('.options-user').removeClass('filterBlur')
         $('.query-scheduling').removeClass('display-enable')
         $('.container-historic').html('')
     }
