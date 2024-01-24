@@ -20,7 +20,10 @@ server.get('/message').then(response => {
 
 $('.option-exit').on('click', () => pageHref('./'))
 $('.option-schedule').on('click', () => pageHref('./agendamento.html'))
-$('.option-cancel-schedule').on('click', () => {
+$('.option-cancel-schedule').on('click', optionCancelScheduling)
+$('.option-historic').on('click', historic)
+
+function optionCancelScheduling() {
     setScreenFloat('habilitar')
 
     $('.title-screen-float').text('Agendamentos disponíveis')
@@ -63,9 +66,7 @@ $('.option-cancel-schedule').on('click', () => {
             `)
         }
     })
-})
-
-$('.option-historic').on('click', historic)
+}
 
 function trashScheduling(i, HistoricContent) {
     $('.container-historic').html(HistoricContent)
@@ -102,7 +103,7 @@ function trashScheduling(i, HistoricContent) {
             setTimeout(() => {
                 containerMessage.removeClass('success-message')
             }, 2200)
-        })      
+        })
     })
 }
 
@@ -120,12 +121,12 @@ function certifyDate(data) {
     } else if (dateFormatBR.slice(3, 5) <= data.slice(3, 5)) {
         if (dateFormatBR.slice(3, 5) === data.slice(3, 5)) {
             if (dateFormatBR.slice(0, 2) < data.slice(0, 2)) return true
-            
+
             return false
         }
         return true
     }
-    
+
     return false
 }
 
