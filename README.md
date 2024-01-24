@@ -1,8 +1,12 @@
 # Projeto Agendamento Barbearia <img src="./FrontEnd/assets/img/logo-barbearia.png" width="40px" style="position: absolute; top: -1px; margin-left: 10px">
 
+<p loading="lazy" align="center">
+    <img src="https://img.shields.io/badge/STATUS%20-%20EM%20ANDAMENTO%20-%20(34%20197%2094)">
+</p>
+
 Esse é um projeto de um site para agendamentos de serviços de uma barbearia, um site que possui diversas funcionalidades para o usuário utilizar. Foi desenvolvido e idealizado por mim
 
-<img src="./FrontEnd/assets/img/Ilustracao-figura-readme.png">
+<img loading="lazy" src="./FrontEnd/assets/img/Ilustracao-figura-readme.png">
 
 
 ## Objetivo 🎯
@@ -16,7 +20,7 @@ O objetivo desse projeto foi demonstrar minhas habilidades com um projeto full-s
 ## Como acessar o site 💻
 Para acessar é muito simples, basta clicar nesse link: https://barbearia-agendamentos-7z52.onrender.com
 
-<img src="./FrontEnd/assets/img/barbearia.gif">
+<img loading="lazy" src="./FrontEnd/assets/img/barbearia.gif">
 
 >Como o site possui uma hospedagem gratuita o tempo de resposta com o servidor assim que chamado a primeira vez irá ser muito lento.
 <br><br>Tempo estimado para a primeira chamada: 1 minuto
