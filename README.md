@@ -1,4 +1,4 @@
-# Projeto Agendamento Barbearia <img src="./FrontEnd/assets/img/logo-barbearia.png" width="40px" style="position: absolute; top: -1px; margin-left: 10px">
+# Projeto Agendamento Barbearia <img src="./FrontEnd/assets/img/logo-barbearia.png" width="40px" style="position: absolute; margin-left: 10px">
 
 <p loading="lazy" align="center">
     <img src="https://img.shields.io/badge/STATUS%20-%20EM%20ANDAMENTO%20-%20(34%20197%2094)">
@@ -27,13 +27,12 @@ Para acessar é muito simples, basta clicar nesse link: https://barbearia-agenda
 
 ## Tecnologias utilizadas 👨‍💻
 
-- HTML <img style="position: absolute; top: 1px; margin-left: 5px" width="20" src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_html_icon_130541.png">
+- HTML <img style="position: absolute; margin-left: 5px" width="20" src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_html_icon_130541.png">
 
-- CSS <img style="position: absolute; top: 2px; margin-left: 5px" width="18" src="https://cdn.iconscout.com/icon/free/png-512/free-css-131-722685.png?f=webp&w=256">
+- CSS <img style="position: absolute; margin-left: 5px" width="18" src="https://cdn.iconscout.com/icon/free/png-512/free-css-131-722685.png?f=webp&w=256">
 
-- JavaScript <img style="position: absolute; top: 2px; margin-left: 5px" width="18" src="https://cdn.iconscout.com/icon/free/png-512/free-javascript-1-225993.png?f=webp&w=256">
+- JavaScript <img style="position: absolute; margin-left: 5px" width="18" src="https://cdn.iconscout.com/icon/free/png-512/free-javascript-1-225993.png?f=webp&w=256">
 
-- NodeJS
-<img style="position: absolute; top: 1px; margin-left: 5px" width="20" src="https://cdn.iconscout.com/icon/free/png-512/free-nodejs-1-226034.png?f=webp&w=256">
+- NodeJS <img style="position: absolute; margin-left: 5px" width="20" src="https://cdn.iconscout.com/icon/free/png-512/free-nodejs-1-226034.png?f=webp&w=256">
 
-- PostgreSQL <img style="position: absolute; top: 3px; margin-left: 5px" width="20" src="https://cdn.iconscout.com/icon/free/png-512/free-postgresql-226047.png?f=webp&w=256">
+- PostgreSQL <img style="position: absolute; margin-left: 5px" width="20" src="https://cdn.iconscout.com/icon/free/png-512/free-postgresql-226047.png?f=webp&w=256">
