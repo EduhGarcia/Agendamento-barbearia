@@ -9,7 +9,7 @@
     background-color: var(--cor-branca);
     color: black;
     min-height: 50%;
-    width: 30%;
+    width: 500px;
     position: absolute;
     z-index: 1;
     align-items: center;
@@ -95,6 +95,7 @@ input:-webkit-autofill {
     padding: 12px 30px;
     margin: 50px 0 30px 0;
     cursor: pointer;
+    color: rgb(161 161 170);
     transition: 0.3s ease-in-out;
 }
 
@@ -118,4 +119,20 @@ input:-webkit-autofill {
 .container-loading i{
     width: min-content;
     height: min-content;
+}
+
+@media (max-width: 800px) {
+    .connecting {
+        width: 60%;
+    }
+}
+
+@media (max-width: 560px) {
+    .connecting {
+        width: 70%;
+    }
+
+    .connecting h2 {
+        font-size: 21px;
+    }
 }
