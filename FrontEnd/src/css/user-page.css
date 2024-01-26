@@ -20,17 +20,17 @@
     top: 170px;
 }
 
-.options-schedule .option-btn:hover {
+.options-user .option-btn:hover {
     filter: brightness(75%);
     color: var(--verde-claro);
 }
 
-.options-schedule .option-exit:hover {
+.options-user .option-exit:hover {
     color: var(--cor-vermelha);
 }
 
 .query-scheduling {
-    width: 28%;
+    width: 530px;
     height: 50%;
     background: -moz-linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%); background: -webkit-linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%); background: linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%);
     position: absolute;
@@ -62,7 +62,7 @@
     max-height: 300px;
     overflow: auto;
     color: var(--cor-branca);
-    padding-right: 10px;
+    /* padding-right: 10px; */
 }
 
 .container-historic::-webkit-scrollbar {
@@ -145,4 +145,48 @@
     border-radius: 5px;
     margin: 70px 40px 0 40px;
     list-style: none;
+}
+
+@media (max-width: 918px) {
+    .not-found {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 860px) {
+    .query-scheduling {
+        width: 60%;
+    }
+}
+
+@media (max-width: 727px) {
+    .not-found {
+        margin: 30px 10px 0 10px;
+    }
+}
+
+@media (max-width: 527px) {
+    .query-scheduling {
+        top: 58%;
+        width: 70%;
+    }
+}
+
+@media (max-width: 460px) {
+    .query-scheduling {
+        width: 75%;
+    }
+
+    .query-scheduling .title-screen-float {
+        font-size: 24px;
+    }
+
+    .not-found {
+        font-size: 17px;
+    }
+
+    .icon-exit {
+        left: 25px;
+        top: 30px;
+    }
 }

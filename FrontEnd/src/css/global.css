@@ -23,7 +23,7 @@ main {
     --verde-claro: rgb(22 163 74);
 }
 
-.btns-connect, .options-schedule {
+.btns-connect, .options-user {
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -70,5 +70,19 @@ h1 {
     .btns-connect button, .option-btn {
         font-size: 17px;
         width: 80%;
+    }
+
+    .btns-connect, .options-user {
+        padding-top: 90px;
+    }
+}
+
+@media (max-width: 365px) {
+    .btns-connect button, .option-btn {
+        font-size: 15px;
+    }
+
+    .btns-connect, .options-user {
+        padding-top: 110px;
     }
 }

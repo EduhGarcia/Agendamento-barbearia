@@ -43,6 +43,7 @@
     padding: 5px;
     border-radius: 4px;
     cursor: pointer;
+    min-width: 100px;
 }
 
 .scheduling .services {
@@ -204,7 +205,7 @@ span {
 .alert-error {
     background-color: var(--cor-vermelha);
     position: absolute;
-    top: -80px;
+    top: -100px;
     left: 50%;
     transform: translateX(-50%);
     color: var(--cor-branca);
@@ -235,4 +236,133 @@ span {
     width: min-content;
     height: min-content;
     font-size: 50px;
+}
+
+@media (max-height: 850px) {
+    .available-times .container-times {
+        max-height: 390px;
+        overflow: auto;
+    } 
+}
+
+
+@media (max-width: 1400px) {
+    .scheduling, .available-times {
+        width: 45%;
+    } 
+}
+
+@media (max-width: 1250px) {
+    .container {
+        padding: 90px 50px 30px 50px;
+        gap: 40px;
+    }
+
+    .scheduling, .available-times {
+        width: 50%;
+    }
+
+    .btn-return {
+        top: 30px;
+        left: 25px;
+    }
+}
+
+@media (max-width: 1070px) {
+    .container {
+        flex-direction: column;
+        padding-right: 110px;
+        padding-left: 110px;
+    }
+
+    .scheduling, .available-times {
+        width: 100%;
+        min-height: 700px;
+    }
+
+}
+
+@media (max-width: 780px) {
+    .container {
+        padding-right: 80px;
+        padding-left: 80px;
+    }
+
+    .scheduling, .available-times {
+        width: 100%;
+        min-height: 700px;
+        padding: 35px;
+    }
+}
+
+@media (max-width: 660px) {
+    .container {
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+
+    .scheduling .standard-select {
+        font-size: 18px;
+    }
+
+    .scheduling .haircut-date {
+        font-size: 19px;
+    }
+
+    .available-times .attendant {
+        font-size: 23px;
+    }
+
+    .available-times .confirm-scheduling .btn-confirm-scheduling {
+        font-size: 15px;
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 530px) {
+    .haircut-date label {
+        width: min-content;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .haircut-date {
+        flex-direction: column;
+    }
+
+    .haircut-date label {
+        width: max-content;
+        font-size: 19px;
+    }
+
+    .scheduling .services .haircut-date #input-date {
+        font-size: 20px;
+    }
+
+    .available-times .attendant {
+        font-size: 21px;
+    }
+
+    .scheduling .standard-select {
+        font-size: 18px;
+    }
+
+    .scheduling .value-total {
+        font-size: 20px;
+    }
+
+    .container .available-times {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .alert-error {
+        top: -130px;
+    }
 }

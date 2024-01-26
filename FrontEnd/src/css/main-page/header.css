@@ -37,3 +37,9 @@
         font-size: 29px;
     }
 }
+
+@media (max-width: 365px) {
+    .header h1 {
+        font-size: 27px;
+    }
+}
