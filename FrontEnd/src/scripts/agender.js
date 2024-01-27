@@ -4,9 +4,6 @@ const server = axios.create({
     baseURL: 'https://server-barbearia.onrender.com'
 })
 
-const DataCorteDeCabelo = $('.services')
-const select = $('.options-services')
-const typeService = $('.type-services')
 const containerTimes = $('.container-times')
 const btnScheduling = $('.btn-confirm-scheduling')
 
@@ -21,7 +18,7 @@ const month = dataAtual.getMonth() + 1 < 10 ? '0' + (dataAtual.getMonth() + 1)
 
 export const dateFormat = dataAtual.getFullYear() + '-' + month + '-' + day
 
-DataCorteDeCabelo.prepend(`
+$('.services').prepend(`
     <div class="haircut-date">
         <label for="input-date">Data do agendamento</label>
         <input id="input-date" type="date" min="${dateFormat}">
@@ -33,7 +30,7 @@ const inputDate = $('#input-date')
 inputDate.val(dateFormat)
 printTimesAvailables(inputDate.val())
 
-select.on('change', screenTypeServices)
+$('.options-services').on('change', screenTypeServices)
 btnScheduling.on('click', validateData)
 
 inputDate.on('input', () => {
@@ -45,6 +42,7 @@ $('.btn-return').on('click', () => pageHref('./usuario.html'))
 function screenTypeServices() {
     const valueTotal = $('.value-total')
     const option = $('.services :selected')
+    const typeService = $('.type-services')
     let countValue = 0
 
     typeService.html('<option id="default-option" class="placeholder-option">Escolha um tipo</option>')
@@ -57,7 +55,6 @@ function screenTypeServices() {
         <option>Corte degradê</option>
         <option>Corte social</option>
         <option>Corte militar</option>
-        <option>Barba + corte degradê em V</option>
         `)
 
         countValue = 30
@@ -177,7 +174,7 @@ function confirmScheduling(serviceInfo, timeSelect) {
     $('.btn-cancel').on('click', () => {
         $('main').html(mainContent)
 
-        backToScheduling(serviceInfo.id)
+        backToScheduling(serviceInfo[0].id)
         identifyTimeSelected()
     })
 
@@ -209,6 +206,7 @@ function backToScheduling(idSelect) {
         return "true"
     })
 
+    $('.options-services').on('change', screenTypeServices)
     $('#input-date').val(dateFormat)
     $('.confirm-infos').removeClass('diplay-enable')
     $('.btn-confirm-scheduling').on('click', validateData)
