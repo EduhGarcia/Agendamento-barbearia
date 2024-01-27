@@ -23,7 +23,7 @@ Para acessar é muito simples, basta clicar nesse link: https://barbearia-agenda
 <img loading="lazy" src="./FrontEnd/assets/img/barbearia.gif">
 
 >Como o site possui uma hospedagem gratuita o tempo de resposta com o servidor assim que chamado a primeira vez irá ser muito lento.
-<br><br>Tempo estimado para a primeira chamada: 1 minuto
+<br><br>Tempo estimado para a primeira chamada: 1 minuto ( Pode variar )
 
 ## Tecnologias utilizadas 👨‍💻
 
