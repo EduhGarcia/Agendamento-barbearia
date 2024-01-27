@@ -175,6 +175,7 @@ function confirmScheduling(serviceInfo, timeSelect) {
         $('main').html(mainContent)
 
         backToScheduling(serviceInfo[0].id)
+        $('.btn-return').on('click', () => pageHref('./usuario.html'))
         identifyTimeSelected()
     })
 
