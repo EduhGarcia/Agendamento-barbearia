@@ -121,6 +121,7 @@ option {
 .available-times .attendant {
     font-size: 25px;
     text-transform: capitalize;
+    padding-right: 6px;
 }
 
 .available-times .confirm-scheduling {
@@ -144,8 +145,8 @@ option {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    height: 32%;
-    width: 30%;
+    height: 34%;
+    width: 560px;
     text-transform: uppercase;
     position: absolute;
     top: 50%;
@@ -317,6 +318,10 @@ span {
         font-size: 15px;
         padding: 15px 20px;
     }
+
+    .confirm-infos {
+        width: 85%;
+    }
 }
 
 @media (max-width: 530px) {
@@ -324,6 +329,13 @@ span {
         width: min-content;
     }
 
+    .confirm-infos {
+        align-items: center;
+    }
+
+    .confirm-infos .btns-action-scheduling {
+        align-self: stretch;
+    }
 }
 
 @media (max-width: 450px) {
@@ -365,4 +377,28 @@ span {
     .alert-error {
         top: -130px;
     }
+
+    .confirm-infos {
+        height: 45%;
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+
+    .confirm-infos h2 {
+        font-size: 21px;
+    }
+
+    .confirm-infos .confirm-data {
+        font-size: 17px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .confirm-infos .confirm-data p:last-child {
+        color: var(--verde-claro);
+        margin-top: 20px;
+        font-size: 15px;
+        text-align: center;
+    }   
 }
