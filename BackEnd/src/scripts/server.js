@@ -1,12 +1,10 @@
 const express = require("express")
-const cors = require("cors")
 const { PrismaClient } = require("@prisma/client")
 const SwaggerUi = require("swagger-ui-express")
-const swaggerDocument = require("./gerenciamento-barbearia.json")
+const swaggerDocument = require("../../gerenciamento-barbearia.json")
 
 const app = express()
 const prisma = new PrismaClient()
-const PORT = process.env.PORT || 3000
 app.use(express.json())
 
 app.use(function (req, res, next) {
@@ -160,6 +158,4 @@ app.get('/message', function (req, res) {
     userInfo.alertAnnimation = ''
 })
 
-
-
-app.listen(PORT, () => console.log("Servidor iniciado"))
+module.exports = app
