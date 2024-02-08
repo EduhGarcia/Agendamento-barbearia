@@ -8,15 +8,12 @@ const prisma = new PrismaClient()
 app.use(express.json())
 
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', 'https://barbearia-agendamentos-7z52.onrender.com');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Origin');
-    if ('OPTIONS' == req.method) {
-        res.sendStatus(200);
-    } else {
-        next();
-    }
+    
+    next();
 });
 
 app.use("/docs", SwaggerUi.serve, SwaggerUi.setup(swaggerDocument))
