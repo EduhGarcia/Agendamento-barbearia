@@ -8,7 +8,6 @@ Esse é um projeto de um site para agendamentos de serviços de uma barbearia, u
 
 <img loading="lazy" src="./FrontEnd/assets/img/Ilustracao-figura-readme.png">
 
-
 ## Objetivo 🎯
 O objetivo desse projeto foi demonstrar minhas habilidades com um projeto full-stack e buscar novos desafios, buscando aprender coisas novas.
 
