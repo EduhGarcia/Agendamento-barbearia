@@ -1,0 +1,135 @@
+@import './variables';
+
+@mixin flexDirection {
+    display: flex;
+    flex-direction: column;
+}
+
+.default-btn-connect:hover,
+.btns-connect button:hover {
+    opacity: 0.6;
+}
+
+.connecting {
+    @include flexDirection;
+    background: map-get($backgrounds, bg-secondary);
+    color: black;
+    min-height: 50%;
+    width: 500px;
+    position: absolute;
+    z-index: 1;
+    align-items: center;
+    padding: 15px 10px;
+    border-radius: 8px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.7s ease-in-out;
+    justify-content: center;
+    color: $cinza-claro;
+
+    h2 {
+        margin: 40px 0;
+        text-transform: uppercase;
+        font-weight: 400;
+        text-align: center;
+        padding-bottom: 20px;
+        width: 90%;
+    }
+
+    .info-user {
+        @include flexDirection;
+        position: relative;
+        gap: 30px;
+        width: 70%;
+
+        .info-input {
+            @include flexDirection;
+            gap: 5px;
+            font-size: 20px;
+            position: relative;
+
+            input {
+                font-size: 18px;
+                padding: 4px 8px;
+                background-color: transparent;
+                border: none;
+                border-bottom: 1px solid $cinza-claro;
+                color: $cinza-claro;
+
+                &:focus {
+                    outline: 0;
+                    border-bottom: 1px solid rgb(16 185 129);
+                }
+
+                &:-webkit-autofill {
+                    -webkit-box-shadow: 0 0 0 100px rgb(68 64 60) inset;
+                    border: 1px solid black;
+                    -webkit-text-fill-color: $cor-branca;
+                }
+            }
+
+            .input-error {
+                position: absolute;
+                bottom: -22px;
+                left: 4px;
+                font-size: 13px;
+                color: $cor-vermelha;
+                text-transform: uppercase;
+            }
+
+            i {
+                position: absolute;
+                top: 3px;
+                right: 8px;
+                cursor: pointer;
+                color: gray;
+            }
+        }
+    }
+
+    .default-btn-connect {
+        background: map-get($backgrounds, bg-button);
+        border: none;
+        border-radius: 6px;
+        font-size: 18px;
+        padding: 12px 30px;
+        margin: 50px 0 30px 0;
+        cursor: pointer;
+        color: rgb(161 161 170);
+        transition: 0.3s ease-in-out;
+    }
+
+    .email-using {
+        color: $cor-vermelha;
+        font-size: 18px;
+        position: absolute;
+        bottom: -36px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.display-disable {
+    display: none;
+}
+
+.display-enable {
+    display: flex;
+}
+
+@media (max-width: 800px) {
+    .connecting {
+        width: 60%;
+    }
+}
+
+@media (max-width: 560px) {
+    .connecting {
+        width: 70%;
+
+        h2 {
+            font-size: 21px;
+        }
+    }
+}

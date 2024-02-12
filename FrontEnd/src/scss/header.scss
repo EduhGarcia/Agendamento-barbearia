@@ -1,22 +1,24 @@
+@import './variables';
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 80px;
     z-index: 1;
-    background: -moz-linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%); background: -webkit-linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%); background: linear-gradient(-121deg,  #222225 0%,#47474c 100%,#6e7ff3 100%);
+    background: map-get($backgrounds, bg-secondary);
     filter: brightness(80%);
     position: absolute;
     width: 100%;
     top: 0;
-}
 
-.header .logo-barbearia {
-    width: 100px;
-}
+    .logo-barber {
+        width: 100px;
+    }
 
-.header h1 {
-    text-align: center;
+    h1 {
+        text-align: center;
+    }
 }
 
 @media (max-width: 710px) {
@@ -25,16 +27,16 @@
     }
 }
 
-@media (max-width: 525px) {
+@media (max-width: 540px) {
     .header {
         flex-direction: column;
         gap: 30px;
         padding: 20px;
-    }
 
-    .header h1 {
-        text-align: center;
-        font-size: 29px;
+        h1 {
+            text-align: center;
+            font-size: 29px;
+        }
     }
 }
 

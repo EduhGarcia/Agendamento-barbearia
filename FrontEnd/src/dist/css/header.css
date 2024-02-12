@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  z-index: 1;
+  background: linear-gradient(-121deg, #222225 0%, #47474c 100%, #6e7ff3 100%);
+  filter: brightness(80%);
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+.header .logo-barber {
+  width: 100px;
+}
+.header h1 {
+  text-align: center;
+}
+
+@media (max-width: 710px) {
+  .header h1 {
+    text-align: end;
+  }
+}
+@media (max-width: 540px) {
+  .header {
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+  }
+  .header h1 {
+    text-align: center;
+    font-size: 29px;
+  }
+}
+@media (max-width: 365px) {
+  .header h1 {
+    font-size: 27px;
+  }
+}/*# sourceMappingURL=header.css.map */

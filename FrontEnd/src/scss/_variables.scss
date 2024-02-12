@@ -1,0 +1,11 @@
+$cor-branca: rgb(226 232 240);
+$cinza-claro: rgb(214 211 209);
+$cinza-escuro: rgb(41 37 36);
+$cor-vermelha: rgb(185 28 28);
+$verde-claro: rgb(22 163 74);
+$azul-claro: rgb(8 145 178);
+$backgrounds: (
+    "bg-primary": linear-gradient(149deg, rgba(45,82,112,1) 18%, rgba(33,48,60,1) 36%, rgba(34,50,62,1) 62%, rgba(47,85,111,1) 81%),
+    "bg-secondary": linear-gradient(-121deg, #222225 0%, #47474c 100%, #6e7ff3 100%),
+    "bg-button": linear-gradient(-121deg, #6e7ff3 0%, #1d4652 0%, #3e7c8a 100%)
+) 

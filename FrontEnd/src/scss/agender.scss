@@ -1,0 +1,368 @@
+@import './variables';
+
+@mixin responsive($size-screen: size) {
+    @media (max-width: $size-screen) {
+        @content
+    }
+};
+
+@include responsive($size-screen: 450px) {
+    #input-date, .attendant,
+    .value-total, .confirm-infos h2 {
+        font-size: 20px;
+    }
+}
+
+.container {
+    @include responsive($size-screen: 1250px) {
+        padding: 90px 50px 30px 50px;
+        gap: 40px;
+    }
+
+    @include responsive($size-screen: 1070px) {
+        flex-direction: column;
+        padding-right: 110px;
+        padding-left: 110px;
+    }
+
+    @include responsive($size-screen: 780px) {
+        padding-right: 8%;
+        padding-left: 8%;
+    }
+
+    @include responsive($size-screen: 450px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    padding: 70px 100px;
+    display: flex;
+    justify-content: center;
+    color: $cor-branca;
+    gap: 70px;
+
+    span {
+        font-weight: bold;
+    }
+
+    .scheduling,
+    .available-times {
+        @include responsive($size-screen: 1400px) {
+            width: 45%;
+        }
+
+        @include responsive($size-screen: 1250px) {
+            width: 50%;
+        }
+
+        @include responsive($size-screen: 1070px) {
+            width: 100%;
+            min-height: 700px;
+        }
+
+        @include responsive($size-screen: 780px) {
+            padding: 35px;
+        }
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 40%;
+        border: 2px solid $cor-branca;
+        padding: 50px;
+        border-radius: 8px;
+    }
+
+    .title-section {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 22px;
+        text-decoration: underline;
+        letter-spacing: 3px;
+    }
+
+    .scheduling {
+        .services {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+
+            .haircut-date {
+                @include responsive($size-screen: 660px) {
+                    font-size: 19px;
+                }
+
+                @include responsive($size-screen: 450px) {
+                    flex-direction: column;
+                }
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 21px;
+                gap: 10px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                width: 100%;
+                margin-bottom: 30px;
+
+                label {
+                    @include responsive($size-screen: 530px) {
+                        width: min-content;
+                    }
+
+                    @include responsive($size-screen: 450px) {
+                        width: max-content;
+                        font-size: 19px;
+                    }
+                }
+
+                #input-date {
+                    font-size: 23px;
+                    flex: 1;
+                    text-align: center;
+                    padding: 5px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    min-width: 100px;
+                }
+            }
+
+            option {
+                color: rgb(113 113 122);
+            }
+
+            .placeholder-option {
+                display: none;
+            }
+        }
+
+        .standard-select {
+            @include responsive($size-screen: 660px) {
+                font-size: 18px;
+            }
+
+            font-size: 22px;
+            text-align: center;
+            width: 100%;
+            letter-spacing: 1px;
+            padding: 8px 0;
+            text-transform: uppercase;
+            border-radius: 5px;
+            outline: 0;
+            border: 3px solid transparent;
+            cursor: pointer;
+            color: rgb(161 161 170);
+
+            &:hover {
+                border-color: lightseagreen;
+            }
+        }
+
+        .value-total {
+            font-size: 25px;
+            text-transform: uppercase;
+        }
+    }
+
+    .available-times {
+        @include responsive($size-screen: 450px) {
+            padding-right: 12px;
+            padding-left: 12px;
+        }
+
+        .container-times {
+            @media (max-height: 850px) {
+                max-height: 390px;
+                overflow: auto;
+            }
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+
+            i {
+                width: min-content;
+                height: min-content;
+                font-size: 50px;
+            }
+
+            .time {
+                background-color: $cor-branca;
+                color: black;
+                padding: 10px 25px;
+                font-size: 20px;
+                border-radius: 7px;
+                cursor: pointer;
+                border: none;
+                transition: .15s ease-in-out;
+                border: solid 1px transparent;
+            }
+
+            .time-selected {
+                background: map-get($backgrounds, bg-secondary);
+                border-color: $cor-branca;
+                color: $cor-branca;
+
+                &:hover {
+                    filter: brightness(100%);
+                }
+            }
+        }
+
+        .attendant {
+            @include responsive($size-screen: 660px) {
+                font-size: 23px;
+            }
+
+            font-size: 25px;
+            text-transform: capitalize;
+            padding-right: 6px;
+        }
+
+        .confirm-scheduling {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .btn-confirm-scheduling {
+                @include responsive($size-screen: 660px) {
+                    font-size: 15px;
+                    padding: 15px 20px;
+                }
+
+                padding: 15px 29px;
+                font-size: 17px;
+                cursor: pointer;
+                text-transform: uppercase;
+                border-radius: 4px;
+                border: none;
+                transition: 0.3s ease-in-out;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .btn-return {
+        @include responsive($size-screen: 1250px) {
+            top: 30px;
+            left: 25px;
+        }
+
+        background-color: $cor-branca;
+        position: absolute;
+        color: black;
+        top: 50px;
+        left: 50px;
+        font-size: 24px;
+        padding: 5px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+    }
+
+    .time:hover,
+    .btn-confirm-scheduling:hover,
+    .btn-return:hover {
+        filter: brightness(50%);
+    }
+}
+
+.confirm-infos {
+    @include responsive($size-screen: 660px) {
+        width: 85%;
+    }
+
+    @include responsive($size-screen: 450px) {
+        height: 45%;
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 34%;
+    width: 560px;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: map-get($backgrounds, bg-secondary);
+    padding: 25px;
+    border-radius: 8px;
+    color: $cor-branca;
+    border: 2px solid $cor-branca;
+
+    .btns-action-scheduling {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            font-size: 17px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            color: $cor-branca;
+            cursor: pointer;
+        }
+
+        button:nth-child(1) {
+            background-color: $cor-vermelha;
+        }
+
+        button:nth-child(2) {
+            background-color: $verde-claro;
+        }
+    }
+
+    .service {
+        text-decoration: underline;
+    }
+
+    .confirm-data {
+        @include responsive($size-screen: 450px) {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        font-size: 20px;
+
+        p:last-child {
+            color: $verde-claro;
+            margin-top: 20px;
+            font-size: 17px;
+        }
+    }
+}
+
+.alert-error {
+    @include responsive($size-screen: 650px) {
+        padding: 15px;
+        top: -15%;
+    }
+
+    background-color: $cor-vermelha;
+    position: fixed;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $cor-branca;
+    padding: 22px;
+    font-size: 23px;
+    border-radius: 5px;
+    text-align: center;
+    transition: 0.4s ease-in-out;
+}
+
+.active-alert {
+    top: 25px;
+}
+
+.display-enable {
+    display: flex;
+}

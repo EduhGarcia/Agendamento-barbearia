@@ -1,0 +1,33 @@
+@mixin responsive($size-screen: size) {
+    @media (max-width: $size-screen) {
+        @content
+    }
+}
+
+.img-scissors {
+    position: absolute;
+    left: 8%;
+    bottom: 26%;
+
+    @include responsive($size-screen: 1480px) {
+        left: 3%;
+    }
+
+    @include responsive($size-screen: 1340px) {
+        display: none;
+    }
+}
+
+.img-chair {
+    position: absolute;
+    right: 8%;
+    bottom: 20%;
+
+    @include responsive($size-screen: 1480px) {
+        right: 5%;
+    }
+
+    @include responsive($size-screen: 1340px) {
+        display: none;
+    }
+}

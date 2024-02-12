@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,700&family=Tektur:wght@700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(149deg, rgb(45, 82, 112) 18%, rgb(33, 48, 60) 36%, rgb(34, 50, 62) 62%, rgb(47, 85, 111) 81%);
+}
+
+main {
+  min-height: 100vh;
+}
+
+.btns-connect, .options-user {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.btns-connect button, .option-btn {
+  background-color: rgb(214, 211, 209);
+  padding: 13px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 19px;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  width: 400px;
+  font-weight: 700;
+}
+
+.filterBlur {
+  filter: blur(6px);
+}
+
+.icon-exit {
+  color: rgb(185, 28, 28);
+  position: absolute;
+  left: 35px;
+  top: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+h1 {
+  font-family: "Tektur", system-ui;
+  color: rgb(214, 211, 209);
+  letter-spacing: 2px;
+}
+
+@media (max-width: 525px) {
+  .btns-connect button, .option-btn {
+    font-size: 17px;
+    width: 80%;
+  }
+  .btns-connect, .options-user {
+    padding-top: 90px;
+  }
+}
+@media (max-width: 365px) {
+  .btns-connect button, .option-btn {
+    font-size: 15px;
+  }
+  .btns-connect, .options-user {
+    padding-top: 110px;
+  }
+}/*# sourceMappingURL=global.css.map */

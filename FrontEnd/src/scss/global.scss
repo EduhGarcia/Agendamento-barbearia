@@ -1,3 +1,5 @@
+@import './variables';
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,700&family=Tektur:wght@700&display=swap');
 
 * {
@@ -8,19 +10,11 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(149deg, rgba(45,82,112,1) 18%, rgba(33,48,60,1) 36%, rgba(34,50,62,1) 62%, rgba(47,85,111,1) 81%);
+    background: map-get($backgrounds, bg-primary);
 }
 
 main {
     min-height: 100vh;
-}
-
-:root {
-    --cor-branca: rgb(226 232 240);
-    --cinza-claro: rgb(214 211 209);
-    --cinza-escuro: rgb(41 37 36);
-    --cor-vermelha: rgb(185 28 28);
-    --verde-claro: rgb(22 163 74);
 }
 
 .btns-connect, .options-user {
@@ -33,7 +27,7 @@ main {
 }
 
 .btns-connect button, .option-btn {
-    background-color: var(--cinza-claro);
+    background-color: $cinza-claro;
     padding: 13px 15px;
     border-radius: 5px;
     border: none;
@@ -51,7 +45,7 @@ main {
 }
 
 .icon-exit {
-    color: var(--cor-vermelha);
+    color: $cor-vermelha;
     position: absolute;
     left: 35px;
     top: 40px;
@@ -62,7 +56,7 @@ main {
 
 h1 {
     font-family: 'Tektur', system-ui;
-    color: var(--cinza-claro);
+    color: $cinza-claro;
     letter-spacing: 2px;
 }
 
