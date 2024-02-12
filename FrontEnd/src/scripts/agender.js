@@ -168,7 +168,7 @@ function confirmScheduling(serviceInfo, timeSelect) {
     infosSchediling.service = serviceInfo[0].innerText
     infosSchediling.typeService = serviceInfo[1].innerText
 
-    $('.confirm-infos').addClass('diplay-enable')
+    $('.confirm-infos').addClass('display-enable')
     $('main').html('')
 
     $('.btn-cancel').on('click', () => {
@@ -209,7 +209,7 @@ function backToScheduling(idSelect) {
 
     $('.options-services').on('change', screenTypeServices)
     $('#input-date').val(dateFormat)
-    $('.confirm-infos').removeClass('diplay-enable')
+    $('.confirm-infos').removeClass('display-enable')
     $('.btn-confirm-scheduling').on('click', validateData)
 }
 
