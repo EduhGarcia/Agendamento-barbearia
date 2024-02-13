@@ -1,7 +1,7 @@
 import { pageHref } from "./user-page.js"
 
 const server = axios.create({
-    baseURL: 'https://server-barbearia.onrender.com'
+    baseURL: 'https://agendamento-barbearia-production-24fa.up.railway.app'
 })
 
 const containerTimes = $('.container-times')
