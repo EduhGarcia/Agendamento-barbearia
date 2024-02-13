@@ -24,6 +24,9 @@ Para acessar é muito simples, basta clicar nesse link: https://barbearia-agenda
 >Como o site possui uma hospedagem gratuita o tempo de resposta com o servidor assim que chamado a primeira vez irá ser muito lento.
 <br><br>Tempo estimado para a primeira chamada: 1 minuto ( Pode variar )
 
+## Documentação das rotas
+Foi feita a documentação de todas as rotas do express e oque cada faz, a documetação foi feita com o swagger e pode ser acessado por aqui: https://server-barbearia.onrender.com/docs/
+
 ## Tecnologias utilizadas 👨‍💻
 
 - HTML <img style="position: absolute; margin-left: 5px" width="20" src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_html_icon_130541.png">
@@ -35,3 +38,9 @@ Para acessar é muito simples, basta clicar nesse link: https://barbearia-agenda
 - NodeJS <img style="position: absolute; margin-left: 5px" width="20" src="https://cdn.iconscout.com/icon/free/png-512/free-nodejs-1-226034.png?f=webp&w=256">
 
 - PostgreSQL <img style="position: absolute; margin-left: 5px" width="20" src="https://cdn.iconscout.com/icon/free/png-512/free-postgresql-226047.png?f=webp&w=256">
+
+- Jquery <img style="position: absolute; margin-left: 5px" width="20" src="https://cdn.iconscout.com/icon/free/png-512/free-jquery-8-1175153.png?f=webp&w=256">
+
+- SCSS <img style="position: absolute; margin-left: 5px" width="20" src="https://www.svgrepo.com/show/374068/scss.svg">
+
+- Swagger <img style="position: absolute; margin-left: 5px" width="20" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Swagger-logo.png">
