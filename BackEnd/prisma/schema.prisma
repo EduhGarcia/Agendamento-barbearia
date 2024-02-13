@@ -15,7 +15,7 @@ model Agendamento {
   tipo_servico  String?   @db.VarChar(50)
   horario       String?   @db.VarChar(5)
 
-  @@map("agendamento")
+  @@map("agendamentos")
 }
 
 model Usuario {
