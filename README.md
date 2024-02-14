@@ -17,7 +17,7 @@ O objetivo desse projeto foi demonstrar minhas habilidades com um projeto full-s
 `Funcionalidade 3:` Opção de agendamento. O agendamento consiste em escolher uma data, serviço, tipo de serviço e hora do agendamento desejada.
 
 ## Como acessar o site 💻
-Para acessar é muito simples, basta clicar nesse link: <a target="_blank">https://agendamento-barbearia-production-24fa.up.railway.app</a>
+Para acessar é muito simples, basta clicar <a target="_blank" href="https://agendamento-barbearia-production-24fa.up.railway.app">Aqui</a>
 
 <img loading="lazy" src="./FrontEnd/assets/img/barbearia.gif">
 
