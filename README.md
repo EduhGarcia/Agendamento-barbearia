@@ -17,15 +17,12 @@ O objetivo desse projeto foi demonstrar minhas habilidades com um projeto full-s
 `Funcionalidade 3:` Opção de agendamento. O agendamento consiste em escolher uma data, serviço, tipo de serviço e hora do agendamento desejada.
 
 ## Como acessar o site 💻
-Para acessar é muito simples, basta clicar nesse link: https://barbearia-agendamentos-7z52.onrender.com
+Para acessar é muito simples, basta clicar nesse link: https://agendamento-barbearia-production-24fa.up.railway.app/
 
 <img loading="lazy" src="./FrontEnd/assets/img/barbearia.gif">
 
->Como o site possui uma hospedagem gratuita o tempo de resposta com o servidor assim que chamado a primeira vez irá ser muito lento.
-<br><br>Tempo estimado para a primeira chamada: 1 minuto ( Pode variar )
-
 ## Documentação das rotas
-Foi feita a documentação de todas as rotas do express e oque cada faz, a documetação foi feita com o swagger e pode ser acessado por aqui: https://server-barbearia.onrender.com/docs/
+Foi feita a documentação de todas as rotas do express e oque cada faz, a documetação foi feita com o swagger e pode ser acessado por aqui: https://agendamento-barbearia-production.up.railway.app/docs/
 
 ## Tecnologias utilizadas 👨‍💻
 
