@@ -4,11 +4,6 @@ const server = axios.create({
     baseURL: 'https://agendamento-barbearia-production.up.railway.app'
 })
 
-const containerTimes = $('.container-times')
-const btnScheduling = $('.btn-confirm-scheduling')
-
-let timeActually = 5.30
-let tranformTime = timeActually + ""
 const dataAtual = new Date
 const infosSchediling = {}
 
@@ -25,19 +20,34 @@ $('.services').prepend(`
     </div>
 `)
 
-const inputDate = $('#input-date')
+basicFeatures(dateFormat)
+printTimesAvailables($('#input-date').val())
 
-inputDate.val(dateFormat)
-printTimesAvailables(inputDate.val())
+$('.btn-confirm-infos').on('click', () => {
+    const { date, time, service, typeService } = infosSchediling
 
-$('.options-services').on('change', screenTypeServices)
-btnScheduling.on('click', validateData)
+    server.post('/agendamento', {
+        date,
+        time,
+        service,
+        typeService
+    })
 
-inputDate.on('input', () => {
-    printTimesAvailables(inputDate.val())
+    pageHref('./usuario.html')
 })
 
-$('.btn-return').on('click', () => pageHref('./usuario.html'))
+function basicFeatures(dateCurrent) {
+    const inputDate = $('#input-date')
+
+    inputDate.val(dateCurrent)
+    inputDate.on('input', () => {
+        printTimesAvailables(inputDate.val())
+    })
+
+    $('.options-services').on('change', screenTypeServices)
+    $('.btn-confirm-scheduling').on('click', validateData)
+    $('.btn-return').on('click', () => pageHref('./usuario.html'))
+}
 
 function screenTypeServices() {
     const valueTotal = $('.value-total')
@@ -80,8 +90,12 @@ function screenTypeServices() {
 }
 
 function printTimesAvailables(dateValue) {
+    const containerTimes = $('.container-times')
     containerTimes.html('')
+    
     let timesUsed = []
+    let timeActually = 5.30
+    let tranformTime = timeActually + ""
 
     containerTimes.append('<i class="fa-solid fa-spinner fa-spin-pulse"></i>')
 
@@ -133,9 +147,6 @@ function printTimesAvailables(dateValue) {
 
         identifyTimeSelected()
         $('.fa-spinner').remove();
-
-        timeActually = 5.30
-        tranformTime = timeActually + ""
     })
 }
 
@@ -161,6 +172,7 @@ function confirmScheduling(serviceInfo, timeSelect) {
     const mainContent = $('main').html()
 
     printDate()
+
     $('.service').text(serviceInfo[0].innerText)
     $('.time-confirm').text(timeSelect + ' horas')
 
@@ -175,21 +187,6 @@ function confirmScheduling(serviceInfo, timeSelect) {
         $('main').html(mainContent)
 
         backToScheduling(serviceInfo[0].id)
-        $('.btn-return').on('click', () => pageHref('./usuario.html'))
-        identifyTimeSelected()
-    })
-
-    $('.btn-confirm-infos').on('click', () => {
-        const { date, time, service, typeService } = infosSchediling
-
-        server.post('/agendamento', {
-            date,
-            time,
-            service,
-            typeService
-        })
-
-        pageHref('./usuario.html')
     })
 }
 
@@ -207,10 +204,10 @@ function backToScheduling(idSelect) {
         return "true"
     })
 
-    $('.options-services').on('change', screenTypeServices)
-    $('#input-date').val(dateFormat)
+    basicFeatures(infosSchediling.date)
+    identifyTimeSelected()
+
     $('.confirm-infos').removeClass('display-enable')
-    $('.btn-confirm-scheduling').on('click', validateData)
 }
 
 function printDate() {
