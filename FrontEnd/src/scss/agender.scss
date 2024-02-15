@@ -291,7 +291,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: map-get($backgrounds, bg-secondary);
+    background-color: rgb(63 63 70);
     padding: 25px;
     border-radius: 8px;
     color: $cor-branca;

@@ -271,7 +271,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(-121deg, #222225 0%, #47474c 100%, #6e7ff3 100%);
+  background-color: rgb(63, 63, 70);
   padding: 25px;
   border-radius: 8px;
   color: rgb(226, 232, 240);
