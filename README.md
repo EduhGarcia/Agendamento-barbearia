@@ -38,6 +38,6 @@ Foi feita a documentação de todas as rotas do express e oque cada faz, a docum
 
 - Jquery <img style="position: absolute; margin-left: 5px" width="20" src="https://cdn.iconscout.com/icon/free/png-512/free-jquery-8-1175153.png?f=webp&w=256">
 
-- SCSS <img style="position: absolute; margin-left: 5px" width="20" src="https://www.svgrepo.com/show/374068/scss.svg">
+- SASS <img style="position: absolute; margin-left: 5px" width="20" src="https://www.svgrepo.com/show/374068/scss.svg">
 
 - Swagger <img style="position: absolute; margin-left: 5px" width="20" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Swagger-logo.png">
