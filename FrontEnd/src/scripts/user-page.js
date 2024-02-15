@@ -7,7 +7,6 @@ export const server = axios.create({
 export const containerMessage = $('.container-message')
 
 server.get('/message').then(response => {
-    console.log(response);
     $('.username').text(response.data.name)
     if (response.data.alertAnnimation !== '') {
         containerMessage.text(response.data.alertAnnimation)
