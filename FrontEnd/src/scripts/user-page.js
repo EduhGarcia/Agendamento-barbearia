@@ -4,7 +4,7 @@ export const server = axios.create({
     baseURL: 'https://agendamento-barbearia-production.up.railway.app'
 })
 
-export const containerMessage = $('.container-message')
+const containerMessage = $('.container-message')
 
 server.get('/message').then(response => {
     $('.username').text(response.data.name)

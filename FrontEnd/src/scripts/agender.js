@@ -92,7 +92,7 @@ function screenTypeServices() {
 function printTimesAvailables(dateValue) {
     const containerTimes = $('.container-times')
     containerTimes.html('')
-    
+
     let timesUsed = []
     let timeActually = 5.30
     let tranformTime = timeActually + ""
