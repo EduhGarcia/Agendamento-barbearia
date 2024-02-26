@@ -4,6 +4,8 @@ export const server = axios.create({
     baseURL: 'https://agendamento-barbearia-production.up.railway.app'
 })
 
+window.location.reload()
+
 const containerMessage = $('.container-message')
 
 $('.option-exit').on('click', () => pageHref('./'))
@@ -12,7 +14,6 @@ $('.option-cancel-schedule').on('click', optionCancelScheduling)
 $('.option-historic').on('click', historic)
 
 server.get('/message').then(response => {
-    console.log(response);
     $('.username').text(response.data.name)
     if (response.data.alertAnnimation !== '') {
         containerMessage.text(response.data.alertAnnimation)
