@@ -6,16 +6,18 @@ export const server = axios.create({
 
 const containerMessage = $('.container-message')
 
-server.get('/message').then(response => {
-    $('.username').text(response.data.name)
-    if (response.data.alertAnnimation !== '') {
-        containerMessage.text(response.data.alertAnnimation)
-        containerMessage.addClass('success-message')
+$(document).on('DOMContentLoaded', () => {
+    server.get('/message').then(response => {
+        $('.username').text(response.data.name)
+        if (response.data.alertAnnimation !== '') {
+            containerMessage.text(response.data.alertAnnimation)
+            containerMessage.addClass('success-message')
 
-        setTimeout(() => {
-            containerMessage.removeClass('success-message')
-        }, 2200)
-    }
+            setTimeout(() => {
+                containerMessage.removeClass('success-message')
+            }, 2200)
+        }
+    })
 })
 
 $('.option-exit').on('click', () => pageHref('./'))
