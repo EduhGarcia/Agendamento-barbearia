@@ -88,8 +88,6 @@ app.post('/agendamento', async function (req, res) {
             }
         })
 
-        userInfo.alertAnnimation = 'Agendamento Realizado!'
-
         res.status(201).send({ message: 'Agendamento feito com sucesso' })
     } catch (err) {
         return res.status(501).send({ message: 'Não foi possível realizar o agendamento' })

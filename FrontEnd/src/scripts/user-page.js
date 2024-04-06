@@ -4,8 +4,6 @@ export const server = axios.create({
     baseURL: 'https://agendamento-barbearia-production.up.railway.app'
 })
 
-window.location.reload()
-
 const containerMessage = $('.container-message')
 
 $('.option-exit').on('click', () => pageHref('./'))

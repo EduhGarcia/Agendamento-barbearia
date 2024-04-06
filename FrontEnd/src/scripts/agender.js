@@ -33,7 +33,14 @@ $('.btn-confirm-infos').on('click', () => {
         typeService
     })
 
-    pageHref('./usuario.html')
+    $('.confirm-infos').html(`
+        <i class="fa-solid fa-check icon-check"></i>
+        <p>AGENDAMENTO REALIZADO</p>
+    `).addClass('realize-scheduling')
+
+    setTimeout(() => {
+        pageHref('./usuario.html')
+    }, 2300)
 })
 
 function basicFeatures(dateCurrent) {

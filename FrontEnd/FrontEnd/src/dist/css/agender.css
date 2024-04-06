@@ -307,14 +307,6 @@
 .confirm-infos .btns-action-scheduling button:nth-child(2) {
   background-color: rgb(22, 163, 74);
 }
-.confirm-infos .icon-check {
-  border-radius: 50%;
-  border: solid 2px rgba(255, 255, 255, 0.1);
-  padding: 8px 12px;
-  font-size: 50px;
-  transition: all 1s ease-in-out;
-  animation: pulseIcon 1.5s forwards;
-}
 .confirm-infos .service {
   text-decoration: underline;
 }
@@ -363,37 +355,7 @@
 }
 
 .realize-scheduling {
-  color: rgb(22, 163, 74);
+  color: red;
   align-items: center;
   justify-content: center;
-  gap: 30px;
-  font-size: 21px;
-  animation: borderClock 2s forwards;
-}
-
-@keyframes pulseIcon {
-  0% {
-    scale: 1;
-  }
-  50% {
-    scale: 1.2;
-  }
-  100% {
-    scale: 1;
-    border-color: rgb(22, 163, 74);
-  }
-}
-@keyframes borderClock {
-  25% {
-    border-top-color: rgb(22, 163, 74);
-  }
-  50% {
-    border-right-color: rgb(22, 163, 74);
-  }
-  75% {
-    border-bottom-color: rgb(22, 163, 74);
-  }
-  100% {
-    border-color: rgb(22, 163, 74);
-  }
 }/*# sourceMappingURL=agender.css.map */

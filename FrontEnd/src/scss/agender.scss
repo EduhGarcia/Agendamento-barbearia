@@ -319,6 +319,15 @@
         }
     }
 
+    .icon-check {
+        border-radius: 50%;
+        border: solid 2px rgba(255, 255, 255, 0.1);
+        padding: 8px 12px;
+        font-size: 50px;
+        transition: all 1s ease-in-out;
+        animation: pulseIcon 1.5s forwards;
+    }
+
     .service {
         text-decoration: underline;
     }
@@ -365,4 +374,46 @@
 
 .display-enable {
     display: flex;
+}
+
+.realize-scheduling {
+    color: $verde-claro;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    font-size: 21px;
+    animation: borderClock 2s forwards;
+}
+
+@keyframes pulseIcon {
+    0% {
+        scale: (1);
+    }
+
+    50% {
+        scale: (1.2);
+    }
+
+    100% {
+        scale: (1);
+        border-color: $verde-claro;;
+    }
+}
+
+@keyframes borderClock {
+    25% {
+        border-top-color: $verde-claro;
+    }
+
+    50% {
+        border-right-color: $verde-claro;
+    }
+
+    75% {
+        border-bottom-color: $verde-claro;
+    }
+
+    100% {
+        border-color: $verde-claro;
+    }
 }
