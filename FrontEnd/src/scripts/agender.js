@@ -1,7 +1,7 @@
 import { pageHref } from "./user-page.js"
 
 const server = axios.create({
-    baseURL: 'https://agendamento-barbearia.up.railway.app'
+    baseURL: 'https://agendamento-barbearia-production.up.railway.app'
 })
 
 const dataAtual = new Date
