@@ -40,7 +40,7 @@ $('.btn-confirm-infos').on('click', () => {
 
     setTimeout(() => {
         pageHref('./usuario.html')
-    }, 2300)
+    }, 2000)
 })
 
 function basicFeatures(dateCurrent) {
