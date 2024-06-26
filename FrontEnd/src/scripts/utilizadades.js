@@ -1,5 +1,5 @@
 const server = axios.create({
-    baseURL: 'https://agendamento-barbearia-production.up.railway.app'
+    baseURL: 'http://54.172.128.46:3000'
 })
 
 export const connecting = $('.connecting')

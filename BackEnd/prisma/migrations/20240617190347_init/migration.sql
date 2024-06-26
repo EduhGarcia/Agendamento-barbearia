@@ -1,12 +1,3 @@
-/*
-  Warnings:
-
-  - You are about to drop the `agendamento` table. If the table is not empty, all the data it contains will be lost.
-
-*/
--- DropTable
-DROP TABLE "agendamento";
-
 -- CreateTable
 CREATE TABLE "agendamentos" (
     "id" SERIAL NOT NULL,
@@ -17,4 +8,14 @@ CREATE TABLE "agendamentos" (
     "horario" VARCHAR(5),
 
     CONSTRAINT "data_agendamento_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "usuario" (
+    "id" SERIAL NOT NULL,
+    "nome" VARCHAR(80),
+    "email" VARCHAR(80),
+    "senha" VARCHAR(50),
+
+    CONSTRAINT "usear_pkey" PRIMARY KEY ("id")
 );
