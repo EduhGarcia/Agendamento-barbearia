@@ -1,7 +1,7 @@
 import { dateFormat } from "./agender.js"
 
 export const server = axios.create({
-    baseURL: 'https://agendamento-barbearia-production.up.railway.app'
+    baseURL: 'http://54.172.128.46:3000'
 })
 
 const containerMessage = $('.container-message')
@@ -27,6 +27,7 @@ function optionCancelScheduling() {
     setScreenFloat('habilitar')
 
     $('.title-screen-float').text('Agendamentos disponíveis')
+    $('.query-scheduling').append('<p class="messageAttention">⚠️ Nao é possivel cancelar o agendamento no mesmo dia</p>')
 
     server.get('/agendamento').then(response => {
         let schedulingsAvailables = false

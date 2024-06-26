@@ -13,7 +13,6 @@
   color: rgb(226, 232, 240);
   border-radius: 5px;
   transition: 0.8s ease-in-out;
-  transition-delay: 0.2s;
   z-index: 0;
 }
 
@@ -52,6 +51,13 @@
   font-weight: 400;
   color: rgb(226, 232, 240);
   margin-top: 10px;
+}
+.query-scheduling .messageAttention {
+  color: yellow;
+  position: absolute;
+  top: 83px;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 .query-scheduling .container-historic {
   width: 100%;
