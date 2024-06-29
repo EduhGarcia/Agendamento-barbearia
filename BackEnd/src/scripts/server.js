@@ -1,5 +1,5 @@
 const express = require("express")
-const dotenv = require("dotenv").config()
+const dotenv = require("dotenv")
 const { PrismaClient } = require("@prisma/client")
 const cors = require("cors")
 const SwaggerUi = require("swagger-ui-express")
@@ -8,6 +8,7 @@ const swaggerDocument = require("../../gerenciamento-barbearia.json")
 const app = express()
 const prisma = new PrismaClient()
 
+dotenv.config()
 app.use(cors())
 app.use(express.json())
 
