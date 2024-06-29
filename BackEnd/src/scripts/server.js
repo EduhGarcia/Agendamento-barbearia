@@ -1,6 +1,7 @@
 const express = require("express")
+const dotenv = require("dotenv").config()
 const { PrismaClient } = require("@prisma/client")
-const cors = require('cors')
+const cors = require("cors")
 const SwaggerUi = require("swagger-ui-express")
 const swaggerDocument = require("../../gerenciamento-barbearia.json")
 
