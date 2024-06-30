@@ -5,13 +5,16 @@ const cors = require("cors")
 const SwaggerUi = require("swagger-ui-express")
 const swaggerDocument = require("../../gerenciamento-barbearia.json")
 
+
 const app = express()
 const prisma = new PrismaClient()
 
 dotenv.config()
 app.use(cors())
 app.use(express.json())
-
+console.log(process.env.TZ)
+console.log(process.env)
+console.log(process.env.DATABASE_URL)
 app.use("/docs", SwaggerUi.serve, SwaggerUi.setup(swaggerDocument))
 
 let userInfo = {
