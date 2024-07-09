@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/scripts/index.js",
+    "start": "node index.js",
     "test": "jest",
     "watch": "jest --watch *.js",
-    "dev": "nodemon src/scripts/index.js"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
