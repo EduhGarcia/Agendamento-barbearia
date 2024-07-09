@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "watch": "jest --watch *.js",
-    "dev": "nodemon src/scripts/index.js"
+    "dev": "nodemon src/scripts/index.js",
+    "vercel-build": "node src/srcipts/index.js"
   },
   "keywords": [],
   "author": "",
