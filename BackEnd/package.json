@@ -7,7 +7,7 @@
     "node": "18.x"
   },
   "scripts": {
-    "start": "node server.js",
+    "vercel-build": "node server.js",
     "test": "jest",
     "watch": "jest --watch *.js",
     "dev": "nodemon src/scripts/index.js"
