@@ -5,7 +5,6 @@ const cors = require("cors")
 const SwaggerUi = require("swagger-ui-express")
 const swaggerDocument = require("../../gerenciamento-barbearia.json")
 
-
 const app = express()
 const prisma = new PrismaClient()
 
