@@ -3,11 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines": {
-    "node": "18.x"
-  },
   "scripts": {
-    "vercel-build": "node server.js",
     "test": "jest",
     "watch": "jest --watch *.js",
     "dev": "nodemon src/scripts/index.js"

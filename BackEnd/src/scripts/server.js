@@ -3,11 +3,10 @@ const dotenv = require("dotenv")
 const { PrismaClient } = require("@prisma/client")
 const cors = require("cors")
 const SwaggerUi = require("swagger-ui-express")
-const swaggerDocument = require("./gerenciamento-barbearia.json")
+const swaggerDocument = require("../../gerenciamento-barbearia.json")
 
 const app = express()
 const prisma = new PrismaClient()
-const PORT = process.env.PORT || 3000 
 
 dotenv.config()
 app.use(cors())
@@ -150,4 +149,4 @@ app.get('/message', function (req, res) {
     userInfo.alertAnnimation = ''
 })
 
-app.listen(PORT, () => console.log("Servidor iniciado"))
+module.exports = app
