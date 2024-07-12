@@ -1,14 +1,20 @@
 const express = require("express")
 const { PrismaClient } = require("@prisma/client")
-const cors = require("cors")
 const SwaggerUi = require("swagger-ui-express")
 const swaggerDocument = require("../../gerenciamento-barbearia.json")
 
 const app = express()
 const prisma = new PrismaClient()
 
-app.use(cors())
 app.use(express.json())
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'https://agendamento-barbearia-production.up.railway.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Origin');
+    next();
+});
+
 app.use("/docs", SwaggerUi.serve, SwaggerUi.setup(swaggerDocument))
 
 let userInfo = {
