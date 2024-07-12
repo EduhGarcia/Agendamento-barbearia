@@ -44,6 +44,15 @@
   display: none;
   gap: 40px;
 }
+.query-scheduling .messageAttention {
+  color: rgb(234, 179, 8);
+  position: absolute;
+  top: 80px;
+  padding: 0 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+}
 .query-scheduling .title-screen-float {
   font-size: 25px;
   text-align: center;
@@ -51,13 +60,6 @@
   font-weight: 400;
   color: rgb(226, 232, 240);
   margin-top: 10px;
-}
-.query-scheduling .messageAttention {
-  color: yellow;
-  position: absolute;
-  top: 83px;
-  text-transform: uppercase;
-  font-size: 14px;
 }
 .query-scheduling .container-historic {
   width: 100%;

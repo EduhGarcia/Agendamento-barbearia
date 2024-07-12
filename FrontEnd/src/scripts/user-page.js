@@ -166,6 +166,7 @@ function setScreenFloat(action) {
         $('.options-user').removeClass('filterBlur')
         $('.query-scheduling').removeClass('display-enable')
         $('.container-historic').html('')
+        $('.messageAttention').remove()
     }
 }
 
