@@ -17,12 +17,12 @@ O objetivo desse projeto foi demonstrar minhas habilidades com um projeto full-s
 `Funcionalidade 3:` Opção de agendamento. O agendamento consiste em escolher uma data, serviço, tipo de serviço e hora do agendamento desejada.
 
 ## Como acessar o site 💻
-Para acessar é muito simples, basta clicar nesse link: <a target="_blank" href="https://agendamento-barbearia-rho.vercel.app">https://agendamento-barbearia-rho.vercel.app<a>
+Para acessar é muito simples, basta clicar nesse link: <a target="_blank" href="https://agendamento-barbearia-rho.vercel.app">link</a>
 
 <img loading="lazy" src="./FrontEnd/assets/img/barbearia.gif">
 
 ## Documentação das rotas
-Foi feita a documentação de todas as rotas do express e oque cada faz, documetação foi feita com o swagger e pode ser acessado por aqui: https://agendamento-barbearia-production.up.railway.app/docs
+Foi feita a documentação de todas as rotas do express e oque cada faz, a documetação foi feita com o swagger e pode ser acessado por aqui: https://agendamento-barbearia-production.up.railway.app/docs
 
 ## Tecnologias utilizadas 👨‍💻
 
