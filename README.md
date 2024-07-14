@@ -22,7 +22,7 @@ Para acessar é muito simples, basta clicar nesse link: <a target="_blank" href=
 <img loading="lazy" src="./FrontEnd/assets/img/barbearia.gif">
 
 ## Documentação das rotas
-Foi feita a documentação de todas as rotas do express e oque cada faz, a documetação foi feita com o swagger e pode ser acessado por aqui: https://agendamento-barbearia-production.up.railway.app/docs
+Foi feita a documentação de todas as rotas do express e oque cada faz, documetação foi feita com o swagger e pode ser acessado por aqui: https://agendamento-barbearia-production.up.railway.app/docs
 
 ## Tecnologias utilizadas 👨‍💻
 
