@@ -19,7 +19,7 @@ O objetivo desse projeto foi demonstrar minhas habilidades com um projeto full-s
 ## Como acessar o site 💻
 Para acessar é muito simples, basta clicar nesse link: https://agendamento-barbearia-rho.vercel.app
 
-<img loading="lazy" src="./FrontEnd/assets/img/barbearia.gif">
+<img target="_blanck" loading="lazy" src="./FrontEnd/assets/img/barbearia.gif">
 
 ## Documentação das rotas
 Foi feita a documentação de todas as rotas do express e oque cada faz, a documetação foi feita com o swagger e pode ser acessado por aqui: https://agendamento-barbearia-production.up.railway.app/docs
