@@ -17,7 +17,7 @@ O objetivo desse projeto foi demonstrar minhas habilidades com um projeto full-s
 `Funcionalidade 3:` Opção de agendamento. O agendamento consiste em escolher uma data, serviço, tipo de serviço e hora do agendamento desejada.
 
 ## Como acessar o site 💻
-Para acessar é muito simples, basta clicar nesse link: <a target="_blank" href="https://agendamento-barbearia-rho.vercel.app">link</a>
+Para acessar é muito simples, basta clicar nesse link: https://agendamento-barbearia-rho.vercel.app
 
 <img loading="lazy" src="./FrontEnd/assets/img/barbearia.gif">
 
