@@ -105,6 +105,7 @@ function printTimesAvailables(dateValue) {
     let tranformTime = timeActually + ""
 
     containerTimes.append('<i class="fa-solid fa-spinner fa-spin-pulse"></i>')
+    if (dateValue === undefined) return
 
     server.get('/horarios/' + dateValue).then(response => {
         if (response.data.message === undefined) {
