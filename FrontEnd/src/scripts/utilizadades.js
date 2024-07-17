@@ -87,7 +87,7 @@ function changeTextLabel(message, label) {
 }
 
 function userAllowed() {
-    window.location.href = './usuario.html'
+    window.location.href += './usuario.html'
     clearValueInput()
     return next = 0
 }
