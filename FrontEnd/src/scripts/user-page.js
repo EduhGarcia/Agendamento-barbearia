@@ -1,6 +1,6 @@
 import { dateFormat } from "./agender.js"
 
-export const server = axios.create({
+const server = axios.create({
     baseURL: 'https://agendamento-barbearia-production.up.railway.app'
 })
 
@@ -10,6 +10,11 @@ $('.option-exit').on('click', () => pageHref('./'))
 $('.option-schedule').on('click', () => pageHref('./agendamento.html'))
 $('.option-cancel-schedule').on('click', optionCancelScheduling)
 $('.option-historic').on('click', historic)
+
+server.get('/message').then(res => {
+    console.log(res);
+})
+
 
 function optionCancelScheduling() {
     setScreenFloat('habilitar')
