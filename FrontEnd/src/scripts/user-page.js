@@ -11,9 +11,12 @@ $('.option-schedule').on('click', () => pageHref('./agendamento.html'))
 $('.option-cancel-schedule').on('click', optionCancelScheduling)
 $('.option-historic').on('click', historic)
 
-server.get('/message').then(res => {
-    console.log(res);
-})
+setTimeout(() => {
+    server.get('/message').then(res => {
+        console.log(res);
+    })
+}, 5000);
+
 
 
 function optionCancelScheduling() {
