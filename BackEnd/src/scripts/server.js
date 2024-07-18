@@ -19,28 +19,28 @@ let userInfo = {
 };
 
 app.post('/login', async function (req, res) {
+    try {
+        const { email, password } = req.body
+        const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 
-    const { email, password } = req.body
-    const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
+        console.log(indentifyUser);
+        console.log(req.body);
 
-    console.log(indentifyUser);
-    console.log(req.body);
+        if (!indentifyUser) {
+            return res.send({ message: 'Usuário não encontrado' })
+        } else if (indentifyUser.senha !== password) {
+            return res.send({ message: 'Senha incorreta' })
+        };
 
-    if (!indentifyUser) {
-        return res.send({ message: 'Usuário não encontrado' })
-    } else if (indentifyUser.senha !== password) {
-        return res.send({ message: 'Senha incorreta' })
-    };
+        userInfo.email = email
+        userInfo.name = indentifyUser.nome
 
-    userInfo.email = email
-    userInfo.name = indentifyUser.nome
+        console.log(userInfo)
 
-    console.log(userInfo)
-
-    res.status(200).send({ message: 'Usuário encontrado' })
-
-    return res.status(501).send({ message: 'Falha ao encontrar usuário' })
-
+        res.status(200).send({ message: 'Usuário encontrado' })
+    } catch {
+        return res.status(501).send({ message: 'Falha ao encontrar usuário' })
+    }
 }
 )
 
