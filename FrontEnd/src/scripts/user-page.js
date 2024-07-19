@@ -11,13 +11,18 @@ $('.option-schedule').on('click', () => pageHref('./agendamento.html'))
 $('.option-cancel-schedule').on('click', optionCancelScheduling)
 $('.option-historic').on('click', historic)
 
-setTimeout(() => {
-    server.get('/message').then(res => {
-        console.log(res);
-    })
-}, 5000);
+server.get('/message').then(res => {
+    $('.username').text(response.data.name)
+    
+    if (response.data.alertAnnimation !== '') {
+        containerMessage.text(response.data.alertAnnimation)
+        containerMessage.addClass('success-message')
 
-
+        setTimeout(() => {
+            containerMessage.removeClass('success-message')
+        }, 2200)
+    }
+})
 
 function optionCancelScheduling() {
     setScreenFloat('habilitar')
