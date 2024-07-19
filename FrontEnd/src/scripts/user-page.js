@@ -11,9 +11,9 @@ $('.option-schedule').on('click', () => pageHref('./agendamento.html'))
 $('.option-cancel-schedule').on('click', optionCancelScheduling)
 $('.option-historic').on('click', historic)
 
-server.get('/message').then(res => {
+server.get('/message').then(response => {
     $('.username').text(response.data.name)
-    
+
     if (response.data.alertAnnimation !== '') {
         containerMessage.text(response.data.alertAnnimation)
         containerMessage.addClass('success-message')
