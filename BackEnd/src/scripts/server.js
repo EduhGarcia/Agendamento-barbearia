@@ -23,9 +23,6 @@ app.post('/login', async function (req, res) {
         const { email, password } = req.body
         const indentifyUser = await prisma.usuario.findFirst({ where: { email } })
 
-        console.log(indentifyUser);
-        console.log(req.body);
-
         if (!indentifyUser) {
             return res.send({ message: 'Usuário não encontrado' })
         } else if (indentifyUser.senha !== password) {
@@ -35,14 +32,11 @@ app.post('/login', async function (req, res) {
         userInfo.email = email
         userInfo.name = indentifyUser.nome
 
-        console.log(userInfo)
-
         res.status(200).send({ message: 'Usuário encontrado' })
     } catch {
         return res.status(501).send({ message: 'Falha ao encontrar usuário' })
     }
-}
-)
+})
 
 app.post('/cadastro', async function (req, res) {
     try {
